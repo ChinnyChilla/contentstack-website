@@ -1,0 +1,107 @@
+.avatar-background-icon {
+  height: 2.144rem;
+  width: 2.044rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.avatar-background-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-mini);
+}
+.text1 {
+  height: 0.563rem;
+  width: 0;
+  position: relative;
+  line-height: 0.563rem;
+  display: inline-block;
+}
+.avatar-22,
+.avatar-name {
+  display: flex;
+  justify-content: flex-start;
+}
+.avatar-name {
+  width: 0.563rem;
+  height: 0.563rem;
+  border-radius: var(--br-8xs-5);
+  background-color: var(--color-limegreen-200);
+  border: 1.5px solid var(--color-white);
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--padding-12xs-3) var(--padding-10xs) 0 var(--padding-8xs);
+}
+.avatar-22 {
+  border-radius: var(--br-lg);
+  background-color: var(--color-limegreen-100);
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: var(--padding-mid-2) var(--padding-12xs) var(--padding-12xs-2);
+  gap: var(--gap-5xs-8);
+  flex-shrink: 0;
+}
+.name-4 {
+  align-self: stretch;
+  height: 1.831rem;
+  position: relative;
+  line-height: 1.375rem;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.entry-content,
+.name-4-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.name-4-wrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-lgi-1) 0 0;
+  font-size: var(--font-size-xl);
+}
+.entry-content {
+  width: 11.513rem;
+  flex-direction: row;
+  gap: var(--gap-xs-8);
+}
+.menu-5-5 {
+  width: 1.888rem;
+  height: 1.663rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.menu-5-5-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mid-4) 0 0;
+}
+.leaderboard-entry {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-4xs);
+  color: var(--color-white);
+  font-family: var(--font-manrope);
+}
+@media screen and (max-width: 450px) {
+  .name-4 {
+    font-size: var(--font-size-base);
+    line-height: 1.125rem;
+  }
+  .leaderboard-entry {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,128 @@
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(35px);
+  border-radius: var(--br-11xl);
+  background-color: var(--color-gainsboro-100);
+  border: 3px solid var(--color-gray-300);
+  box-sizing: border-box;
+}
+.leaderboard {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: inherit;
+  line-height: 1.875rem;
+  font-weight: 700;
+  font-family: inherit;
+  z-index: 1;
+}
+.component-16-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: -0.469rem;
+  right: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.component-16,
+.third-milestone {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-8xl);
+  max-width: 100%;
+}
+.component-16 {
+  flex-direction: column;
+  padding: var(--padding-13xl) var(--padding-lg) var(--padding-31xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-20xl);
+  min-height: 25.813rem;
+  z-index: 1;
+}
+.component-17-icon {
+  height: 0.688rem;
+  width: 4.063rem;
+  position: relative;
+  z-index: 1;
+}
+.component-17-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.milestone-instance,
+.milestone-instance-wrapper,
+.milestones {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.milestone-instance {
+  flex: 1;
+  flex-direction: column;
+}
+.milestone-instance-wrapper,
+.milestones {
+  box-sizing: border-box;
+}
+.milestone-instance-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-3xl);
+  text-align: left;
+  font-size: var(--font-size-4xs);
+  font-family: var(--font-manrope);
+}
+.milestones {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  padding: var(--padding-7xl) 0 var(--padding-3xs);
+  gap: var(--gap-3xl);
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-lexend);
+}
+@media screen and (max-width: 925px) {
+  .leaderboard {
+    font-size: var(--font-size-5xl);
+    line-height: 1.5rem;
+  }
+  .third-milestone {
+    flex-wrap: wrap;
+  }
+  .component-16 {
+    gap: var(--gap-lgi);
+  }
+}
+@media screen and (max-width: 450px) {
+  .leaderboard {
+    font-size: var(--font-size-lg);
+    line-height: 1.125rem;
+  }
+}

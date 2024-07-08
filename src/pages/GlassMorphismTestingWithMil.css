@@ -1,0 +1,475 @@
+.wrapper-ellipse-24-child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  transform: scale(1.506);
+}
+.wrapper-ellipse-24 {
+  width: 22.25rem;
+  height: 22.25rem;
+  position: absolute;
+  margin: 0 !important;
+  top: 7rem;
+  left: 46.438rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.wrapper-ellipse-23-child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  transform: scale(1.561);
+}
+.wrapper-ellipse-23 {
+  width: 20.063rem;
+  height: 20.063rem;
+  position: absolute;
+  margin: 0 !important;
+  right: 36.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.wrapper-ellipse-25-child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  transform: scale(1.747);
+}
+.wrapper-ellipse-25 {
+  width: 15.063rem;
+  height: 15.063rem;
+  position: absolute;
+  margin: 0 !important;
+  top: 20.688rem;
+  right: 21.188rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.wrapper-ellipse-22-child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  transform: scale(1.531);
+}
+.wrapper-ellipse-22 {
+  position: absolute;
+  top: 3.375rem;
+  left: 7.188rem;
+  width: 21.188rem;
+  height: 21.188rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.performer-details {
+  height: 32rem;
+  width: 50.063rem;
+  position: relative;
+  max-width: 100%;
+}
+.performer-details-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3.031rem;
+  max-width: 100%;
+}
+.wrapper-ellipse-26-child {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  transform: scale(1.279);
+}
+.wrapper-ellipse-26 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40.375rem;
+  height: 40.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.award-card-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.name-here,
+.thank-you-award {
+  align-self: stretch;
+  position: relative;
+  line-height: 0.563rem;
+  z-index: 1;
+}
+.award-card1 {
+  position: absolute;
+  top: 0.5rem;
+  left: 17.813rem;
+  width: 19.938rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 4.562rem 0.125rem 7.875rem;
+  box-sizing: border-box;
+  gap: 1.437rem;
+  z-index: 1;
+}
+.award-card {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 5.25rem;
+  width: 40.375rem;
+}
+.boost-card-container {
+  height: 26.563rem;
+  flex: 1;
+  position: relative;
+  min-width: 29.625rem;
+  max-width: 100%;
+}
+.name-display {
+  width: 22.688rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.birthday-card-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.name-here1 {
+  flex: 1;
+  position: relative;
+  line-height: 0.563rem;
+  z-index: 1;
+}
+.birthday-name-greeting {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xs);
+}
+.happy-birthday {
+  align-self: stretch;
+  position: relative;
+  line-height: 0.563rem;
+  color: var(--color-white);
+  z-index: 1;
+}
+.birthday-avatar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.443rem;
+}
+.birthday-content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-43xl) 0 3.937rem;
+}
+.image-10-icon,
+.image-11-icon {
+  height: 5.625rem;
+  width: 5.375rem;
+  position: relative;
+  object-fit: cover;
+  min-height: 5.625rem;
+  z-index: 1;
+}
+.image-11-icon {
+  object-fit: contain;
+}
+.birthday-image-container {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.birthday-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 2.812rem var(--padding-mini) var(--padding-9xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-17xl);
+  min-width: 12.938rem;
+  z-index: 1;
+}
+.frame-icon,
+.simple-text-child {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.simple-text-child {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-11xl);
+}
+.frame-icon {
+  height: 50%;
+  width: 50%;
+  top: 24.48%;
+  right: 25.17%;
+  bottom: 25.52%;
+  left: 24.83%;
+}
+.frame,
+.text {
+  height: 0.563rem;
+}
+.text {
+  width: 0;
+  position: relative;
+  line-height: 0.563rem;
+  display: inline-block;
+}
+.frame {
+  position: absolute;
+  right: 0.05rem;
+  bottom: 0.05rem;
+  border-radius: var(--br-8xs-5);
+  background-color: var(--color-limegreen-200);
+  border: 1.5px solid var(--color-white);
+  box-sizing: border-box;
+  width: 0.563rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-12xs-4) var(--padding-10xs) 0 var(--padding-8xs);
+  z-index: 1;
+}
+.avatar-20,
+.name-here2 {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.avatar-20 {
+  height: 1.813rem;
+  width: 1.813rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-31xl);
+  background-color: var(--color-limegreen-100);
+  overflow: hidden;
+}
+.name-here2 {
+  align-self: stretch;
+  height: 2.338rem;
+  line-height: 0.563rem;
+  display: inline-block;
+}
+.avatar-20-parent,
+.name-here-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.name-here-wrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-7xs) 0 0;
+  font-size: var(--font-size-mini);
+}
+.avatar-20-parent {
+  width: 10.044rem;
+  flex-direction: row;
+  gap: var(--gap-7xs);
+}
+.blank-line,
+.blank-line1,
+.there-is-no,
+.this-is-just {
+  margin: 0;
+}
+.this-is-just-container {
+  height: 16.125rem;
+  flex: 1;
+  position: relative;
+  line-height: 0.563rem;
+  display: inline-block;
+  z-index: 1;
+}
+.this-is-just-simple-text-there-wrapper {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-9xs);
+  font-size: var(--font-size-sm);
+}
+.birthday-card-container,
+.simple-text,
+.this-is-just-simple-text-there-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.simple-text {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-xl) 0.875rem var(--padding-5xl) var(--padding-mini);
+  box-sizing: border-box;
+  position: relative;
+  gap: 0.662rem;
+  min-width: 12.938rem;
+  text-align: left;
+  font-size: var(--font-size-4xs);
+  color: var(--color-white);
+}
+.birthday-card-container {
+  align-self: stretch;
+  flex-direction: row;
+  gap: 3.375rem;
+}
+.birthday-card-container-wrapper {
+  width: 43.25rem;
+  flex-direction: column;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.birthday-card-container-wrapper,
+.boost-card-parent,
+.glassmorphism-testing-with-mil {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.boost-card-parent {
+  width: 112.813rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap-3xs);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-mini);
+  color: var(--color-lavender);
+  font-family: var(--font-manrope);
+}
+.glassmorphism-testing-with-mil {
+  position: relative;
+  background: linear-gradient(109.68deg, #2f6fce, #5f30ad);
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 3.625rem var(--padding-9xl) 0 3rem;
+  box-sizing: border-box;
+  gap: 5.125rem;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 1825px) {
+  .performer-details-parent {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .glassmorphism-testing-with-mil {
+    gap: 2.563rem;
+    padding-left: var(--padding-5xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 925px) {
+  .performer-details {
+    height: auto;
+    min-height: 512;
+  }
+  .performer-details-parent {
+    gap: 1.5rem;
+  }
+  .boost-card-container {
+    min-width: 100%;
+  }
+  .birthday-card-container {
+    flex-wrap: wrap;
+    gap: var(--gap-8xl);
+  }
+  .glassmorphism-testing-with-mil {
+    gap: var(--gap-xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .birthday-content {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .birthday-card {
+    gap: 1.125rem;
+    padding-top: var(--padding-10xl);
+  }
+  .birthday-card,
+  .simple-text {
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

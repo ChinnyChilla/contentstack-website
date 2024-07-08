@@ -1,0 +1,136 @@
+.dashboard-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(35px);
+  border-radius: var(--br-11xl);
+  background-color: var(--color-gainsboro-100);
+  border: 3px solid var(--color-gray-300);
+  box-sizing: border-box;
+}
+.where-the-globe {
+  align-self: stretch;
+  position: relative;
+  line-height: 0.563rem;
+  z-index: 1;
+}
+.card-background,
+.glassmorphism {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.card-background {
+  backdrop-filter: blur(35px);
+  border-radius: var(--br-5xl);
+  background-color: var(--color-slateblue);
+  border: 3px solid var(--color-gray-200);
+  box-sizing: border-box;
+  width: 100%;
+}
+.glassmorphism {
+  bottom: 0;
+  width: 15.625rem;
+}
+.succesful-calls {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+}
+.call-icon {
+  height: 3.188rem;
+  width: 7.313rem;
+  position: relative;
+}
+.call-count {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-10xl) 0 var(--padding-9xl);
+}
+.ms {
+  position: relative;
+  display: inline-block;
+  min-width: 3.125rem;
+}
+.call-metrics,
+.count-unit {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.count-unit {
+  flex-direction: row;
+  padding: 0 var(--padding-43xl) 0 var(--padding-42xl);
+  font-size: var(--font-size-base);
+}
+.call-metrics {
+  position: absolute;
+  top: 1.25rem;
+  left: 1rem;
+  flex-direction: column;
+  padding: var(--padding-5xs) var(--padding-2xl);
+  gap: var(--gap-xs);
+  z-index: 1;
+}
+.metrics-data {
+  height: 11.188rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.earth-card,
+.earth-card-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.earth-card-content {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-11xl) 0 var(--padding-10xl);
+  font-size: var(--font-size-5xl);
+  color: var(--color-thistle);
+  font-family: var(--font-inter);
+}
+.earth-card {
+  width: 29rem;
+  flex-direction: column;
+  padding: var(--padding-155xl) var(--padding-55xl) var(--padding-12xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-100xl);
+  max-width: 100%;
+  z-index: 1;
+  text-align: center;
+  font-size: var(--font-size-mini);
+  color: var(--color-lavender);
+  font-family: var(--font-manrope);
+}
+@media screen and (max-width: 925px) {
+  .earth-card {
+    padding-top: var(--padding-94xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .succesful-calls {
+    font-size: var(--font-size-lgi);
+  }
+  .earth-card {
+    gap: var(--gap-40xl);
+    padding-left: var(--padding-18xl);
+    padding-right: var(--padding-18xl);
+    box-sizing: border-box;
+  }
+}

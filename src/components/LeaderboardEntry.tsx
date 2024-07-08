@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./LeaderboardEntry.css";
 
-const LeaderboardEntry = ({ className = "", name4, menu55 }) => {
+const LeaderboardEntry = ({ className = "", name4 = "", menu55 = ""}) => {
   return (
     <div className={`leaderboard-entry ${className}`}>
       <div className="entry-content">

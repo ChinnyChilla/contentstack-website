@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import PropTypes from "prop-types";
 import "./AwardContent.css";
 
-const AwardContent = ({ className = "", propPadding }) => {
+const AwardContent = ({ className = "", propPadding } : any) => {
   const awardContentStyle = useMemo(() => {
     return {
       padding: propPadding,

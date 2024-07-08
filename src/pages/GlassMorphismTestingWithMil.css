@@ -26,6 +26,7 @@
   position: absolute;
   left: 0;
   top: 0.25rem;
+  z-index: 0;
   transform: scale(1.561);
 }
 .wrapper-ellipse-23 {
@@ -38,7 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 0;
 }
 .wrapper-ellipse-25-child {
   width: 100%;
@@ -59,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
 }
 .wrapper-ellipse-22-child {
   width: 100%;
@@ -126,6 +127,7 @@
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
+  backdrop-filter: blur(35px);
 }
 .name-here,
 .thank-you-award {
@@ -365,12 +367,16 @@
   padding: 0 0 0 var(--padding-9xs);
   font-size: var(--font-size-sm);
 }
+.birthday-card-container {
+	backdrop-filter: blur(35px);
+}
 .birthday-card-container,
 .simple-text,
 .this-is-just-simple-text-there-wrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  
 }
 .simple-text {
   flex: 1;

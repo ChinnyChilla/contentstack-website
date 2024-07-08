@@ -103,6 +103,7 @@
   line-height: 0.563rem;
   display: inline-block;
   z-index: 2;
+  background-color: transparent;
 }
 .message-background-icon {
   height: 7.688rem;
@@ -120,6 +121,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .new-boost-info {
   align-self: stretch;
   flex-direction: row;
@@ -142,4 +144,7 @@
   font-size: var(--font-size-4xs);
   color: var(--color-gainsboro-200);
   font-family: var(--font-manrope);
+}
+.boost-card {
+	backdrop-filter: blur(35px);
 }

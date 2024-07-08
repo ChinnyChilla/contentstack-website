@@ -1,4 +1,4 @@
-.component-12-item {
+.simple-text-child {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -6,31 +6,39 @@
   right: 0;
   bottom: 0;
   left: 0;
-  backdrop-filter: blur(35px);
   border-radius: var(--br-11xl);
-  background-color: var(--color-gainsboro-100);
-  border: 3px solid var(--color-gray-300);
-  box-sizing: border-box;
-}
-.frame-icon12 {
-  position: absolute;
-  height: 50%;
-  width: 50%;
-  top: 24.55%;
-  right: 25.34%;
-  bottom: 25.45%;
-  left: 24.66%;
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
 }
-.text12 {
+.name-here15 {
+  position: absolute;
+  height: 10.51%;
+  width: 39.4%;
+  top: 7.3%;
+  left: 15.67%;
+  line-height: 9px;
+  display: inline-block;
+}
+.frame-icon16 {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 24.48%;
+  right: 25.17%;
+  bottom: 25.52%;
+  left: 24.83%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.text16 {
   position: absolute;
   top: calc(50% - 4.1px);
   left: calc(50% + 0.8px);
   line-height: 9px;
 }
-.frame12 {
+.frame16 {
   position: absolute;
   right: 0.8px;
   bottom: 0.8px;
@@ -41,48 +49,45 @@
   width: 9px;
   height: 9px;
 }
-.avatar-238 {
+.avatar-204 {
   position: absolute;
-  height: 67.9%;
-  width: 16.71%;
-  top: 16.05%;
-  right: 80.98%;
-  bottom: 16.05%;
-  left: 2.31%;
+  height: 8.15%;
+  width: 9.09%;
+  top: 5.62%;
+  right: 86.21%;
+  bottom: 86.24%;
+  left: 4.7%;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: var(--br-31xl);
   background-color: var(--color-limegreen-100);
   overflow: hidden;
-  text-align: left;
   font-size: var(--font-size-4xs);
-  color: var(--color-white);
 }
-.name-here11,
-.some-milestone-number7 {
+.b6 {
+  font-family: var(--font-manrope);
+}
+.just-boosted-people2 {
+  margin: 0;
+}
+.just-boosted-people-container2 {
   position: absolute;
-  height: 16.05%;
-  width: 73.78%;
-  top: 24.69%;
-  left: 22.77%;
-  line-height: 9px;
+  height: 75%;
+  width: 92.79%;
+  top: 16.29%;
+  left: 4.7%;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  color: var(--color-lavender);
   display: inline-block;
 }
-.some-milestone-number7 {
-  height: 9.88%;
-  width: 90.78%;
-  top: 53.09%;
-  left: 14.12%;
-}
-.component-121 {
+.simple-text {
   position: absolute;
-  height: 19.61%;
-  width: 45.84%;
-  top: 68.28%;
-  right: 51.78%;
-  bottom: 12.11%;
-  left: 2.38%;
-  text-align: center;
+  top: 663px;
+  left: 1534px;
+  width: 319px;
+  height: 356px;
+  text-align: left;
   font-size: var(--font-size-mini);
-  color: var(--color-lavender);
+  color: var(--color-white);
   font-family: var(--font-manrope);
 }

@@ -9,13 +9,13 @@ const Component: FunctionComponent<ComponentType> = ({ className = "" }) => {
   return (
     <div className={`component-121 ${className}`}>
       <div className="component-12-item" />
-      <div className="avatar-239">
-        <img className="frame-icon16" alt="" src="/frame.svg" />
-        <div className="frame16">
-          <div className="text16" />
+      <div className="avatar-238">
+        <img className="frame-icon12" alt="" src="/frame.svg" />
+        <div className="frame12">
+          <div className="text12" />
         </div>
       </div>
-      <div className="name-here14">Name Here</div>
+      <div className="name-here11">Name Here</div>
       <b className="some-milestone-number7">Some milestone number here</b>
     </div>
   );

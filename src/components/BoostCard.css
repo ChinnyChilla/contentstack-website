@@ -1,54 +1,75 @@
-.avatar-container-icon,
 .boost-card-child {
   position: absolute;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.boost-card-child {
-  width: 100%;
   height: 100%;
-  margin: 0 !important;
+  width: 100%;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   border-radius: var(--br-11xl);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
 }
-.avatar-container-icon {
+.new-boost1 {
+  position: absolute;
+  height: 4.21%;
+  width: 70.22%;
+  top: 7.87%;
+  left: 21%;
+  line-height: 9px;
+  display: inline-block;
+}
+.b9 {
+  font-family: var(--font-manrope);
+}
+.just-boosted-people3 {
+  margin: 0;
+}
+.here-is-the1 {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.just-boosted-people-container3 {
+  position: absolute;
+  height: 44.94%;
+  width: 92.79%;
+  top: 15.73%;
+  left: 3.76%;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+  display: inline-block;
+}
+.frame-icon20 {
+  position: absolute;
   height: 50%;
   width: 50%;
   top: 24.48%;
   right: 25.17%;
   bottom: 25.52%;
   left: 24.83%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
 }
-.profile-name1 {
-  height: 0.563rem;
-  width: 0;
-  position: relative;
-  line-height: 0.563rem;
-  display: inline-block;
-}
-.name-display1 {
+.text20 {
   position: absolute;
-  right: 0.05rem;
-  bottom: 0.05rem;
+  top: calc(50% - 4.1px);
+  left: calc(50% + 0.8px);
+  line-height: 9px;
+}
+.frame20 {
+  position: absolute;
+  right: 0.8px;
+  bottom: 0.8px;
   border-radius: var(--br-8xs-5);
   background-color: var(--color-limegreen-200);
   border: 1.5px solid var(--color-gainsboro-200);
   box-sizing: border-box;
-  width: 0.563rem;
-  height: 0.563rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-12xs-4) var(--padding-10xs) 0 var(--padding-8xs);
-  z-index: 1;
+  width: 9px;
+  height: 9px;
 }
-.image-12-icon {
-  position: absolute;
+.image-12-icon1 {
   height: 248.28%;
   width: 248.28%;
   top: -75.86%;
@@ -56,93 +77,51 @@
   bottom: -72.41%;
   left: -75.86%;
   max-width: 100%;
-  overflow: hidden;
   max-height: 100%;
   object-fit: cover;
-  z-index: 2;
 }
-.avatar-201 {
-  width: 1.813rem;
-  height: 1.813rem;
-  position: relative;
+.avatar-205,
+.boost-card-item,
+.image-12-icon1 {
+  position: absolute;
+  overflow: hidden;
+}
+.avatar-205 {
+  height: 8.15%;
+  width: 9.09%;
+  top: 5.34%;
+  right: 82.45%;
+  bottom: 86.52%;
+  left: 8.46%;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: var(--br-31xl);
   background-color: var(--color-limegreen-100);
-  overflow: hidden;
-  flex-shrink: 0;
-  z-index: 1;
-}
-.new-boost {
-  height: 2.338rem;
-  width: 7.856rem;
-  position: absolute;
-  margin: 0 !important;
-  top: -1.875rem;
-  left: 2.5rem;
-  line-height: 0.563rem;
-  display: inline-block;
-  z-index: 1;
-}
-.blank-line2,
-.blank-line3,
-.blank-line4,
-.blank-line5,
-.blank-line6,
-.blank-line7,
-.blank-line8,
-.here-is-the,
-.just-boosted-poeple,
-.thank-you- {
-  margin: 0;
-}
-.just-boosted-poeple-here-container {
-  height: 16.125rem;
-  flex: 1;
-  position: relative;
-  font-size: var(--font-size-sm);
-  line-height: 0.563rem;
-  display: inline-block;
-  z-index: 2;
-  background-color: transparent;
-}
-.message-background-icon {
-  height: 7.688rem;
-  width: 7.688rem;
-  position: absolute;
-  margin: 0 !important;
-  bottom: -0.437rem;
-  left: 5.063rem;
-  object-fit: cover;
-  z-index: 3;
-}
-.boost-card,
-.new-boost-info {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.new-boost-info {
-  align-self: stretch;
-  flex-direction: row;
-  position: relative;
-  font-size: var(--font-size-mini);
-  color: var(--color-lavender);
-}
-.boost-card {
-  position: absolute;
-  top: 0.5rem;
-  left: 0;
-  width: 19.938rem;
-  flex-direction: column;
-  padding: var(--padding-lgi) var(--padding-7xs) var(--padding-21xl)
-    var(--padding-8xl);
-  box-sizing: border-box;
-  gap: var(--gap-3xs);
-  z-index: 1;
-  text-align: left;
   font-size: var(--font-size-4xs);
   color: var(--color-gainsboro-200);
+}
+.boost-card-item {
+  height: 34.55%;
+  width: 38.56%;
+  top: 62.36%;
+  right: 30.72%;
+  bottom: 3.09%;
+  left: 30.72%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.boost-card {
+  position: absolute;
+  height: 32.96%;
+  width: 16.61%;
+  top: 61.39%;
+  right: 81.61%;
+  bottom: 5.65%;
+  left: 1.77%;
+  text-align: left;
+  font-size: var(--font-size-mini);
+  color: var(--color-lavender);
   font-family: var(--font-manrope);
 }
 .boost-card {

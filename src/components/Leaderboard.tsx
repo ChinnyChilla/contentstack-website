@@ -18,23 +18,23 @@ const Leaderboard: FunctionComponent<LeaderboardType> = ({
       <div className="leaderboard-minimalistic">
         <div className="leaderboard-box-small">
           <div className="avatar-21">
-            <img className="frame-icon22" alt="" src="/frame-6.svg" />
-            <div className="frame22">
-              <div className="text22" />
+            <img className="frame-icon17" alt="" src="/frame-6.svg" />
+            <div className="frame17">
+              <div className="text17" />
             </div>
           </div>
           <div className="name-4">Name 2</div>
           <div className="avatar-222">
-            <img className="frame-icon22" alt="" src="/frame-6.svg" />
-            <div className="frame23">
-              <div className="text23" />
+            <img className="frame-icon17" alt="" src="/frame-6.svg" />
+            <div className="frame18">
+              <div className="text18" />
             </div>
           </div>
           <div className="name-5">Name 3</div>
-          <div className="avatar-2314">
-            <img className="frame-icon22" alt="" src="/frame-6.svg" />
-            <div className="frame23">
-              <div className="text23" />
+          <div className="avatar-2310">
+            <img className="frame-icon17" alt="" src="/frame-6.svg" />
+            <div className="frame18">
+              <div className="text18" />
             </div>
           </div>
           <b className="top-recievers">{`Top <topic>`}</b>

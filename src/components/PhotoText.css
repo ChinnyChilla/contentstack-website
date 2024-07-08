@@ -11,7 +11,7 @@
   overflow: hidden;
   max-height: 100%;
 }
-.name-here19 {
+.name-here13 {
   position: absolute;
   height: 10.51%;
   width: 39.4%;
@@ -20,7 +20,7 @@
   line-height: 9px;
   display: inline-block;
 }
-.frame-icon21 {
+.frame-icon14 {
   position: absolute;
   height: 50%;
   width: 50%;
@@ -32,13 +32,13 @@
   overflow: hidden;
   max-height: 100%;
 }
-.text21 {
+.text14 {
   position: absolute;
   top: calc(50% - 4.1px);
   left: calc(50% + 0.8px);
   line-height: 9px;
 }
-.frame21 {
+.frame14 {
   position: absolute;
   right: 0.8px;
   bottom: 0.8px;
@@ -49,12 +49,12 @@
   width: 9px;
   height: 9px;
 }
-.avatar-205,
+.avatar-203,
 .photo-text-item {
   position: absolute;
   overflow: hidden;
 }
-.avatar-205 {
+.avatar-203 {
   height: 8.15%;
   width: 9.09%;
   top: 5.62%;
@@ -99,5 +99,4 @@
   font-size: var(--font-size-mini);
   color: var(--color-white);
   font-family: var(--font-manrope);
-  backdrop-filter: blur(35px);
 }

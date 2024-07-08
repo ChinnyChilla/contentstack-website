@@ -1,8 +1,7 @@
-.dashboard-background {
-  width: 100%;
-  height: 100%;
+.earth-card-child {
   position: absolute;
-  margin: 0 !important;
+  height: 100%;
+  width: 100%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -13,124 +12,74 @@
   border: 3px solid var(--color-gray-300);
   box-sizing: border-box;
 }
-.where-the-globe {
-  align-self: stretch;
-  position: relative;
-  line-height: 0.563rem;
-  z-index: 1;
-}
-.card-background,
-.glassmorphism {
+.where-the-globe1 {
   position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: 67.89%;
+  top: 33.98%;
+  left: 15.95%;
+  line-height: 9px;
+  display: inline-block;
 }
-.card-background {
+.rectangle1 {
   backdrop-filter: blur(35px);
   border-radius: var(--br-5xl);
   background-color: var(--color-slateblue);
   border: 3px solid var(--color-gray-200);
   box-sizing: border-box;
-  width: 100%;
 }
-.glassmorphism {
-  bottom: 0;
-  width: 15.625rem;
+.glassmorphism1,
+.rectangle1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 179px;
 }
-.succesful-calls {
-  margin: 0;
-  position: relative;
-  font-size: inherit;
-  font-weight: 400;
-  font-family: inherit;
-}
-.call-icon {
-  height: 3.188rem;
-  width: 7.313rem;
+.succesful-calls1,
+.vector-icon1 {
   position: relative;
 }
-.call-count {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 var(--padding-10xl) 0 var(--padding-9xl);
+.vector-icon1 {
+  width: 117px;
+  height: 51px;
 }
-.ms {
+.ms1 {
   position: relative;
-  display: inline-block;
-  min-width: 3.125rem;
-}
-.call-metrics,
-.count-unit {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.count-unit {
-  flex-direction: row;
-  padding: 0 var(--padding-43xl) 0 var(--padding-42xl);
   font-size: var(--font-size-base);
 }
-.call-metrics {
+.succesful-calls-group {
   position: absolute;
-  top: 1.25rem;
-  left: 1rem;
-  flex-direction: column;
-  padding: var(--padding-5xs) var(--padding-2xl);
-  gap: var(--gap-xs);
-  z-index: 1;
-}
-.metrics-data {
-  height: 11.188rem;
-  flex: 1;
-  position: relative;
-  z-index: 1;
-}
-.earth-card,
-.earth-card-content {
+  top: 20px;
+  left: 16px;
+  width: 216px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  gap: var(--gap-xs);
 }
-.earth-card-content {
-  align-self: stretch;
-  flex-direction: row;
-  padding: 0 var(--padding-11xl) 0 var(--padding-10xl);
+.glassmorphism-group {
+  position: absolute;
+  height: 34.96%;
+  width: 55.39%;
+  top: 58.98%;
+  right: 22.41%;
+  bottom: 6.05%;
+  left: 22.2%;
   font-size: var(--font-size-5xl);
   color: var(--color-thistle);
   font-family: var(--font-inter);
 }
 .earth-card {
-  width: 29rem;
-  flex-direction: column;
-  padding: var(--padding-155xl) var(--padding-55xl) var(--padding-12xl);
-  box-sizing: border-box;
-  position: relative;
-  gap: var(--gap-100xl);
-  max-width: 100%;
-  z-index: 1;
+  position: absolute;
+  top: 58px;
+  left: 897px;
+  width: 464px;
+  height: 512px;
   text-align: center;
   font-size: var(--font-size-mini);
   color: var(--color-lavender);
   font-family: var(--font-manrope);
-}
-@media screen and (max-width: 925px) {
-  .earth-card {
-    padding-top: var(--padding-94xl);
-    padding-bottom: var(--padding-xl);
-    box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 450px) {
-  .succesful-calls {
-    font-size: var(--font-size-lgi);
-  }
-  .earth-card {
-    gap: var(--gap-40xl);
-    padding-left: var(--padding-18xl);
-    padding-right: var(--padding-18xl);
-    box-sizing: border-box;
-  }
 }

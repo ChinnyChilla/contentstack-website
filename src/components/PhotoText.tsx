@@ -1,48 +1,27 @@
-import PropTypes from "prop-types";
+import { FunctionComponent } from "react";
 import "./PhotoText.css";
 
-const PhotoText = ({ className = "" }) => {
+export type PhotoTextType = {
+  className?: string;
+};
+
+const PhotoText: FunctionComponent<PhotoTextType> = ({ className = "" }) => {
   return (
     <div className={`photo-text ${className}`}>
       <img className="photo-text-child" alt="" src="/rectangle-47-1.svg" />
-      <div className="avatar-20-wrapper">
-        <div className="avatar-202">
-          <img
-            className="avatar-border-icon1"
-            loading="lazy"
-            alt=""
-            src="/frame-11.svg"
-          />
-          <div className="profile-display">
-            <div className="profile-name3" />
-          </div>
+      <div className="name-here19">Name Here</div>
+      <div className="avatar-205">
+        <img className="frame-icon21" alt="" src="/frame-11.svg" />
+        <div className="frame21">
+          <div className="text21" />
         </div>
       </div>
-      <div className="name-here-parent">
-        <div className="name-here6">Name Here</div>
-        <img
-          className="info-background-icon"
-          alt=""
-          src="/info-background@2x.png"
-        />
-      </div>
-      <div className="photo-message">
-        <div className="congratulate-on-everything-container">
-          <p className="congratulate-on-everything">
-            Congratulate on everything that we did @_____.  
-          </p>
-          <p className="we-accomplished-a">We accomplished a lot!</p>
-          <p className="blank-line9">&nbsp;</p>
-          <p className="blank-line10">&nbsp;</p>
-          <p className="i-love-our">{`I love our team! ❤️ `}</p>
-        </div>
+      <img className="photo-text-item" alt="" src="/info-background@2x.png" />
+      <div className="i-would-like1">
+        I would like to thank @___ team for their hard work!
       </div>
     </div>
   );
-};
-
-PhotoText.propTypes = {
-  className: PropTypes.string,
 };
 
 export default PhotoText;

@@ -13,6 +13,7 @@
   bottom: 0;
   left: 0;
   border-radius: var(--br-11xl);
+backdrop-filter: blur(35px);
 }
 .frame-icon13 {
   height: 50%;
@@ -79,4 +80,5 @@
   font-size: var(--font-size-mini);
   color: var(--color-lavender);
   font-family: var(--font-manrope);
+  
 }

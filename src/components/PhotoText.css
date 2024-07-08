@@ -99,4 +99,5 @@
   font-size: var(--font-size-mini);
   color: var(--color-white);
   font-family: var(--font-manrope);
+  backdrop-filter: blur(35px);
 }

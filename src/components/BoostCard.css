@@ -110,7 +110,6 @@
   max-height: 100%;
   object-fit: cover;
 }
-
 .boost-card {
   position: absolute;
   height: 32.96%;
@@ -123,7 +122,4 @@
   font-size: var(--font-size-mini);
   color: var(--color-lavender);
   font-family: var(--font-manrope);
-}
-.boost-card {
-	backdrop-filter: blur(35px);
 }

@@ -91,9 +91,7 @@
   object-fit: contain;
 }
 .birthday-card {
-  position: absolute;
-  top: 663px;
-  left: 1161px;
+  position: relative;
   width: 319px;
   height: 356px;
   text-align: center;

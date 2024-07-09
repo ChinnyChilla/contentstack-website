@@ -90,9 +90,7 @@
   display: inline-block;
 }
 .photo-text {
-  position: absolute;
-  top: 663px;
-  left: 788px;
+  position: relative;
   width: 319px;
   height: 356px;
   text-align: left;

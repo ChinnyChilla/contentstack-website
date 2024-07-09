@@ -22,12 +22,6 @@
 }
 .frame-icon16 {
   position: absolute;
-  height: 50%;
-  width: 50%;
-  top: 24.48%;
-  right: 25.17%;
-  bottom: 25.52%;
-  left: 24.83%;
   max-width: 100%;
   overflow: hidden;
   max-height: 100%;
@@ -69,7 +63,7 @@
 .just-boosted-people2 {
   margin: 0;
 }
-.just-boosted-people-container2 {
+.simple-text-message-body-container {
   position: absolute;
   height: 75%;
   width: 92.79%;
@@ -81,9 +75,7 @@
   display: inline-block;
 }
 .simple-text {
-  position: absolute;
-  top: 663px;
-  left: 1534px;
+  position: relative;
   width: 319px;
   height: 356px;
   text-align: left;
@@ -91,4 +83,12 @@
   color: var(--color-white);
   font-family: var(--font-manrope);
   backdrop-filter: blur(35px);
+}
+.simple-text-message-body-text {
+	white-space: pre-line;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
 }

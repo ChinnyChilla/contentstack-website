@@ -111,13 +111,9 @@
   object-fit: cover;
 }
 .boost-card {
-  position: absolute;
-  height: 32.96%;
-  width: 16.61%;
-  top: 61.39%;
-  right: 81.61%;
-  bottom: 5.65%;
-  left: 1.77%;
+  position: relative;
+  height: 356px;
+  width: 319px;
   text-align: left;
   font-size: var(--font-size-mini);
   color: var(--color-lavender);

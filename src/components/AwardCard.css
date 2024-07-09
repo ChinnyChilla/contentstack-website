@@ -71,9 +71,7 @@ backdrop-filter: blur(35px);
   top: 62.36%;
 }
 .award-card {
-  position: absolute;
-  top: 663px;
-  left: 417px;
+  position: relative;
   width: 319px;
   height: 356px;
   text-align: center;

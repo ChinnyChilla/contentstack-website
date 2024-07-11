@@ -5,6 +5,7 @@
 	position: absolute;
 	left: 2%;
 	top: 58%;
+	overflow: hidden
 }
 
 .photo-gallery-container {
@@ -13,6 +14,7 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: nowrap;
+	
 }
 
 .photo-gallery-container>* {
@@ -30,5 +32,6 @@
 
 .carousel-item {
 	min-width: calc(100% / 10.5);
+	height: 100%;
 	transition: transform 0.5s ease-in-out;
 }

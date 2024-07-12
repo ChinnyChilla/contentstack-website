@@ -54,7 +54,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			headers.set("access_token", process.env.REACT_APP_CONTENTSTACK_ACCESS_TOKEN || "");
 
 			const url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/slack_message/entries?${parameters.toString()}`;
-			console.log("Fetched url");
+			console.log(`Fetched url ${url}`);
 			fetch(url, {
 				method: "GET",
 				headers: headers
@@ -129,7 +129,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 					className={`carousel-wrapper ${isTransitioning ? "" : "no-transition"}`}
 					style={{
 						display: 'flex',
-						transform: `translateX(-${currentCarouselIndex * (100 / 10.5)}%)`,
+						transform: `translateX(-${currentCarouselIndex * (100 / 13)}%)`,
 					}}
 				>
 					{clonedMessages.map((message, index) => (
@@ -145,7 +145,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 						</div>
 					))}
 				</div>
-			</div>
+		</div>
 		);
 	}
 }

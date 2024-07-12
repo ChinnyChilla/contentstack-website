@@ -1,10 +1,9 @@
 .photo-gallery-container {
-	background-color: transparent;
-	width: 96%;
-	height: 50vh;
+	width: 49%;
+	height: 35vh;
 	position: absolute;
 	left: 2%;
-	top: 58%;
+	top: 50%;
 	overflow: hidden
 }
 
@@ -14,7 +13,12 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-wrap: nowrap;
-	
+	backdrop-filter: blur(35px);
+	border-radius: var(--br-11xl);
+	background-color: var(--color-gainsboro-100);
+	border: 3px solid var(--color-gray-300);
+	padding-top: 40px;
+	padding-left: 40px;
 }
 
 .photo-gallery-container>* {
@@ -24,6 +28,7 @@
 .carousel-wrapper {
 	display: flex;
 	transition: transform 1s ease-in-out;
+	padding-top: 10px;
 }
 
 .carousel-wrapper.no-transition {
@@ -31,7 +36,7 @@
 }
 
 .carousel-item {
-	min-width: calc(100% / 10.5);
+	min-width: calc(100% / 13);
 	height: 100%;
 	transition: transform 0.5s ease-in-out;
 }

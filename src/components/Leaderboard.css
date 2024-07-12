@@ -1,7 +1,4 @@
-.leaderboard-child,
-.leaderboard-inner,
-.leaderboard-item,
-.rectangle-div {
+.leaderboard-child {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -15,225 +12,18 @@
   border: 3px solid var(--color-gray-300);
   box-sizing: border-box;
 }
-.leaderboard-inner,
-.leaderboard-item,
-.rectangle-div {
-  height: 79.22%;
-  width: 85.68%;
-  top: 17.67%;
-  right: 4.56%;
-  bottom: 3.11%;
-  left: 9.75%;
-}
-.leaderboard-inner,
-.rectangle-div {
-  width: 85.27%;
-  top: 15.73%;
-  right: 7.47%;
-  bottom: 5.05%;
-  left: 7.26%;
-}
-.rectangle-div {
-  width: 85.06%;
-  top: 13.4%;
-  right: 10.58%;
-  bottom: 7.38%;
-  left: 4.36%;
-}
+
 .monthly-leaderboard {
   position: absolute;
   height: 6.8%;
-  width: 71.37%;
+  width: 100%;
   top: 4.27%;
-  left: 21.37%;
   line-height: 26px;
   display: inline-block;
+  text-align: center;
 }
-.frame-icon17 {
-  position: absolute;
-  height: 50.07%;
-  width: 50.08%;
-  top: 24.96%;
-  right: 24.96%;
-  bottom: 24.96%;
-  left: 24.96%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.text17 {
-  position: absolute;
-  top: calc(50% - 4.15px);
-  left: calc(50% + 0.15px);
-  line-height: 9px;
-}
-.frame17 {
-  position: absolute;
-  height: 24.96%;
-  width: 24.96%;
-  top: 69.49%;
-  right: 0;
-  bottom: 5.55%;
-  left: 75.04%;
-  border-radius: var(--br-8xs-5);
-  background-color: var(--color-limegreen-200);
-  border: 1.5px solid var(--color-white);
-  box-sizing: border-box;
-}
-.avatar-21 {
-  height: 19.74%;
-  width: 17.32%;
-  top: 16.83%;
-  right: 82.68%;
-  bottom: 63.43%;
-  left: 0;
-  border-radius: var(--br-lg);
-  background-color: var(--color-hotpink);
-  overflow: hidden;
-}
-.avatar-21,
-.name-4,
-.text18 {
-  position: absolute;
-}
-.name-4 {
-  height: 8.44%;
-  width: 28.41%;
-  top: 54.03%;
-  left: 20.45%;
-  font-size: var(--font-size-xl);
-  line-height: 22px;
-  display: inline-block;
-}
-.text18 {
-  top: calc(50% - 4.1px);
-  left: calc(50% + 0.8px);
-  line-height: 9px;
-}
-.frame18 {
-  position: absolute;
-  right: 1.1px;
-  bottom: 0.3px;
-  border-radius: var(--br-8xs-5);
-  background-color: var(--color-limegreen-200);
-  border: 1.5px solid var(--color-white);
-  box-sizing: border-box;
-  width: 9px;
-  height: 9px;
-}
-.avatar-222 {
-  position: absolute;
-  height: 19.74%;
-  width: 17.32%;
-  top: 48.53%;
-  right: 82.68%;
-  bottom: 31.73%;
-  left: 0;
-  border-radius: var(--br-lg);
-  background-color: var(--color-limegreen-100);
-  overflow: hidden;
-}
-.name-5 {
-  position: absolute;
-  height: 8.44%;
-  width: 27.82%;
-  top: 85.76%;
-  left: 20.45%;
-  font-size: var(--font-size-xl);
-  line-height: 22px;
-  display: inline-block;
-}
-.avatar-2310 {
-  position: absolute;
-  height: 19.74%;
-  width: 17.32%;
-  top: 80.26%;
-  right: 82.68%;
-  bottom: 0;
-  left: 0;
-  border-radius: var(--br-lg);
-  background-color: var(--color-gray-100);
-  overflow: hidden;
-}
-.name-6,
-.top-recievers {
-  position: absolute;
-  display: inline-block;
-}
-.top-recievers {
-  height: 10.17%;
-  width: 68.44%;
-  top: 1.15%;
-  left: 1.09%;
-  font-size: var(--font-size-6xl);
-  line-height: 26px;
-  font-family: var(--font-lexend);
-}
-.name-6 {
-  height: 8.44%;
-  width: 26.6%;
-  top: 22.33%;
-  left: 20.45%;
-  font-size: var(--font-size-xl);
-  line-height: 22px;
-}
-.menu-5-4,
-.menu-5-5,
-.menu-5-6,
-.trophy-2-icon {
-  position: absolute;
-  height: 7.67%;
-  width: 8.01%;
-  top: 21.84%;
-  right: 1.64%;
-  bottom: 70.49%;
-  left: 90.34%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.menu-5-5,
-.menu-5-6,
-.trophy-2-icon {
-  top: 53.54%;
-  right: 1.41%;
-  bottom: 38.79%;
-  left: 90.58%;
-}
-.menu-5-6,
-.trophy-2-icon {
-  top: 85.24%;
-  bottom: 7.09%;
-}
-.trophy-2-icon {
-  height: 9.39%;
-  width: 9.6%;
-  top: 0;
-  right: 0.27%;
-  bottom: 90.61%;
-  left: 90.13%;
-}
-.leaderboard-box-small {
-  position: absolute;
-  height: 99.71%;
-  width: 101.07%;
-  top: -7.18%;
-  right: 0;
-  bottom: 7.47%;
-  left: -1.07%;
-}
-.leaderboard-minimalistic {
-  position: absolute;
-  height: 67.57%;
-  width: 77.39%;
-  top: 23.5%;
-  right: 13.69%;
-  bottom: 8.93%;
-  left: 8.92%;
-  font-size: var(--font-size-4xs);
-  font-family: var(--font-manrope);
-}
-.leaderboard1 {
+
+.leaderboard-container {
   position: absolute;
   top: 58px;
   left: 1409px;

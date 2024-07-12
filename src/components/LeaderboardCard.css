@@ -1,0 +1,31 @@
+.leaderboard-card-container {
+	width: 85.06%;
+	top: 13.4%;
+	right: 10.58%;
+	bottom: 7.38%;
+	left: 4.36%;
+	position: relative;
+	height: 76%;
+	width: 80%;
+	backdrop-filter: blur(35px);
+	border-radius: var(--br-11xl);
+	background-color: var(--color-gainsboro-100);
+	border: 3px solid var(--color-gray-300);
+	box-sizing: border-box;
+}
+.leaderboard-card-topic {
+	text-align: center;
+	width: 100%;
+	margin-bottom: 30px;
+	padding-top: 5px;
+}
+
+.leaderboard-card-entry {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px;
+}

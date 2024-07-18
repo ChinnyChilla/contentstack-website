@@ -1,5 +1,5 @@
 import React from "react"
-import Milestones from "../components/Milestones";
+import Milestones from "../components/High5";
 import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "../components/PhotoGallery"
 import EarthCard from "../components/EarthCard";
@@ -13,30 +13,10 @@ render() {
 
   return (
 	
-    <div className="glassmorphism-testing-with-mil">
-      <img
-        className="glassmorphism-testing-with-mil-child"
-        alt=""
-        src="/ellipse-22.svg"
-      />
-      <img
-        className="glassmorphism-testing-with-mil-item"
-        alt=""
-        src="/ellipse-26.svg"
-      />
-      <img
-        className="glassmorphism-testing-with-mil-inner"
-        alt=""
-        src="/ellipse-24.svg"
-      />
-      <img className="ellipse-icon" alt="" src="/ellipse-23.svg" />
-      <img
-        className="glassmorphism-testing-with-mil-child1"
-        alt=""
-        src="/ellipse-25.svg"
-      />
+    <div className="background">
+      
       <Milestones />
-		  <EarthCard />
+		  {/* <EarthCard /> */}
 		<Leaderboard />
 	  <PhotoGallery />
       

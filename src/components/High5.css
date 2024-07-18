@@ -1,11 +1,8 @@
 .milestones-child {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  height: 115%;
+  width: 150%;
+  left: 1%;
   backdrop-filter: blur(35px);
   border-radius: var(--br-11xl);
   background-color: var(--color-gainsboro-100);
@@ -15,21 +12,21 @@
 .leaderboard,
 .milestones {
   position: absolute;
-  width: 801px;
+  width: 50%;
 }
+
 .leaderboard {
   height: 11.72%;
-  top: 5.08%;
-  left: calc(50% - 400.5px);
-  line-height: 30px;
+  top: 5%;
+  line-height: 30%;
   display: inline-block;
 }
 .milestones {
-  top: 58px;
-  left: 48px;
-  height: 512px;
-  text-align: center;
+  top: 2%;
+  left: 2%;
+  height: 51%;
   font-size: var(--font-size-11xl);
   color: var(--color-white);
   font-family: var(--font-lexend);
+  text-align: center;
 }

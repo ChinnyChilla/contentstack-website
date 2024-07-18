@@ -96,8 +96,8 @@ class PhotoGallery extends React.Component<{}, PageState> {
 
 		this.carouselInterval = setInterval(() => {
 			this.setState((prevState) => {
-				const nextIndex = prevState.currentCarouselIndex + 1;
-				const isLastIndex = nextIndex >= (prevState.messages.length+1)
+				const nextIndex = prevState.currentCarouselIndex + 1; // number of messages moved by (1)
+				const isLastIndex = nextIndex >= (prevState.messages.length + 1)
 
 				return {
 					currentCarouselIndex: isLastIndex ? 0 : nextIndex,
@@ -129,7 +129,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 					className={`carousel-wrapper ${isTransitioning ? "" : "no-transition"}`}
 					style={{
 						display: 'flex',
-						transform: `translateX(-${currentCarouselIndex * (100 / 13)}%)`,
+						transform: `translateX(-${currentCarouselIndex * (90 / 13)}%)`,
 					}}
 				>
 					{clonedMessages.map((message, index) => (

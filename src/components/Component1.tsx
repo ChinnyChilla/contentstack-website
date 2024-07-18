@@ -35,8 +35,8 @@ const Component1: FunctionComponent<Component1Type> = ({
             <div className="text" />
           </div>
         </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
+        {/* add name here <div></div> */}
+
       </div>
       <div className="component-13">
         <div className="component-10-child" />
@@ -46,53 +46,12 @@ const Component1: FunctionComponent<Component1Type> = ({
             <div className="text" />
           </div>
         </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
+
       </div>
-      <div className="component-14">
-        <div className="component-10-child" />
-        <div className="avatar-23">
-          <img className="frame-icon" alt="" src="/frame.svg" />
-          <div className="frame">
-            <div className="text" />
-          </div>
-        </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
-      </div>
-      <div className="component-15">
-        <div className="component-10-child" />
-        <div className="avatar-23">
-          <img className="frame-icon" alt="" src="/frame.svg" />
-          <div className="frame">
-            <div className="text" />
-          </div>
-        </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
-      </div>
-      <div className="component-11">
-        <div className="component-10-child" />
-        <div className="avatar-23">
-          <img className="frame-icon" alt="" src="/frame.svg" />
-          <div className="frame">
-            <div className="text" />
-          </div>
-        </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
-      </div>
-      <div className="component-12">
-        <div className="component-10-child" />
-        <div className="avatar-23">
-          <img className="frame-icon" alt="" src="/frame.svg" />
-          <div className="frame">
-            <div className="text" />
-          </div>
-        </div>
-        <div className="name-here">Name Here</div>
-        <b className="some-milestone-number">Some milestone number here</b>
-      </div>
+      
+      
+      
+      
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import SimpleText from "./SimpleText";
 import './PhotoGallery.css';
+import AwardCard from "./AwardCard";
 
 interface MessageType {
 	creator_user_display_name: string;

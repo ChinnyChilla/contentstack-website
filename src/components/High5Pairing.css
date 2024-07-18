@@ -1,0 +1,75 @@
+/* High5Pairing.css */
+.high5-pairing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content; 
+    position: absolute; 
+	animation: float 4s ease-in-out infinite;
+}
+
+.high5-pairing-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px; 
+}
+
+.high5-pairing-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.high5-pairing-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.high5-pairing-name {
+    font-size: 16px;
+    color: white;
+}
+
+.high5-pairing-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+	margin: 0px;
+	width: fit-content
+}
+
+.image-icon {
+    width: 80px; 
+    height: 80px; 
+    object-fit: cover;
+	overflow: hidden;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	25% {
+		transform: translate(5px, -5px);
+	}
+
+	50% {
+		transform: translate(0, -10px);
+	}
+
+	75% {
+		transform: translate(-5px, -5px);
+	}
+
+	100% {
+		transform: translate(0, 0);
+	}
+}

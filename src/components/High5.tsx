@@ -75,7 +75,11 @@ class High5 extends React.Component<{}, High5State> {
 									const leftDiff = Math.abs(parseFloat(pairing.left) - left);
 									return topDiff >= 10 && leftDiff >= 20;
 								});
-							}
+								
+							};
+							const animationDuration = `${8 + Math.random() * 3}s`;
+							const animationDelay = `${Math.random() * 2}s`;
+							const animationDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
 							pairings.push({
 								top: `${top}%`,
 								left: `${left}%`,
@@ -86,7 +90,10 @@ class High5 extends React.Component<{}, High5State> {
 								reciever: {
 									display_name: recipient.receiver_display_name,
 									profile_url: recipient.receiver_profile_picture.href,
-								}
+								},
+								animationDuration,
+								animationDelay,
+								animationDirection
 							});
 						}
 					})
@@ -119,6 +126,9 @@ class High5 extends React.Component<{}, High5State> {
 						left={pairing.left}
 						giver={pairing.giver}
 						reciever={pairing.reciever}
+						animationDuration={pairing.animationDuration}
+						animationDelay={pairing.animationDelay}
+						animationDirection={pairing.animationDirection}
 					/>
 				))}
 			</div>

@@ -11,13 +11,19 @@ export type High5PairingProps = {
 	reciever: {
 		display_name: string,
 		profile_url: string,
-	};
+	}
+	animationDuration: string;
+	animationDelay: string;
+	animationDirection: string;
 	
 };
 
-const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever}) => {
+const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever, animationDuration, animationDelay, animationDirection }) => {
 	return (
-		<div className="high5-pairing-container" style={{ top, left, position: 'absolute' }}>
+		<div className="high5-pairing-container" style={{
+			top, left, position: 'absolute', animationDuration,
+			animationDelay,
+			animationDirection}}>
 			<div className="high5-pairing-wrapper">
 				<div className="high5-pairing-avatar">
 					<img className="high5-pairing-image" src={giver.profile_url} alt="Avatar 1" />

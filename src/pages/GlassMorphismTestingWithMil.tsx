@@ -2,6 +2,7 @@ import React from "react"
 import High5 from "../components/High5";
 import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "../components/PhotoGallery"
+import SplashScreen from "../components/Splashscreen";
 import "./GlassMorphismTestingWithMil.css";
 
 
@@ -17,7 +18,7 @@ render() {
       <High5 />
 		<Leaderboard />
 	  <PhotoGallery />
-      
+      <SplashScreen />
     </div>
   );
 }

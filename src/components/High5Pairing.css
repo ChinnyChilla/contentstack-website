@@ -8,7 +8,17 @@
     border-radius: 10px;
     width: fit-content; 
     position: absolute; 
+
+}
+.intro-animation {
+	animation: intro 0.5s ease-out;
+}
+
+.float-animation {
 	animation: float 4s ease-in-out infinite;
+}
+.leave-animation {
+	animation: pop 0.3s ease-out;
 }
 
 .high5-pairing-wrapper {
@@ -58,18 +68,41 @@
 	}
 
 	25% {
-		transform: translate(5px, -5px);
+		transform: translate(2px, -2px);
 	}
 
 	50% {
-		transform: translate(0, -10px);
+		transform: translate(0, -2px);
 	}
 
 	75% {
-		transform: translate(-5px, -5px);
+		transform: translate(-2px, -2px);
 	}
 
 	100% {
 		transform: translate(0, 0);
 	}
 }
+
+@keyframes intro {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1)
+	}
+}
+
+@keyframes pop {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	90% {
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1.1);
+	}
+}
+

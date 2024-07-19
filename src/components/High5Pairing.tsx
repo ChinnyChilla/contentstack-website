@@ -11,19 +11,26 @@ export type High5PairingProps = {
 	reciever: {
 		display_name: string,
 		profile_url: string,
-	}
-	animationDuration: string;
-	animationDelay: string;
-	animationDirection: string;
-	
+	};
+	animationName: string; // Add this line
 };
 
-const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever, animationDuration, animationDelay, animationDirection }) => {
+const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever, animationName }) => {
+	var animationDuration = '0.5s';
+	var animationDelay = '0s';
+	var animationDirection = 'normal';
+
+	if (animationName == 'float-animation') {
+		animationDuration = `${8 + Math.random() * 3}s`;
+		animationDelay = `${Math.random() * 2}s`;
+		animationDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
+	}
 	return (
-		<div className="high5-pairing-container" style={{
+		<div className={`high5-pairing-container ${animationName}`} style={{
 			top, left, position: 'absolute', animationDuration,
 			animationDelay,
-			animationDirection}}>
+			animationDirection
+		}}>
 			<div className="high5-pairing-wrapper">
 				<div className="high5-pairing-avatar">
 					<img className="high5-pairing-image" src={giver.profile_url} alt="Avatar 1" />

@@ -1,29 +1,32 @@
 .splashscreen {
 	position: fixed;
-	bottom: 50px;
-	left: 50px;
-	width: calc(80% - 100px);
-	height: calc(100% - 75px);
-	background-color: blue;
+	bottom: 30px;
+	left: 35px;
+	width: calc(80% - 70px);
+	height: calc(100% - 40px);
+	background-color: #6B41B3;
 	z-index: 1000;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	animation: expandOut 5s forwards
+	animation: expandOut 2s forwards;
+	flex-direction: column;
+	border-radius: 3%;
 }
 
 .intro {
-	animation: expandOut 5s forwards
+	animation: expandOut 2s forwards;
 }
 
 .shrink {
-	animation: shrinkDown 1s forwards
+	animation: shrinkDown 1s forwards;
 }
 
 @keyframes expandOut {
 	0% {
 		transform: translate(-100%, 100%) scale(0);
 	}
+
 	100% {
 		transform: translate(0, 0) scale(1);
 	}
@@ -33,7 +36,81 @@
 	0% {
 		transform: scale(1);
 	}
+
 	100% {
 		transform: scale(0);
 	}
+}
+
+.splashscreen-content {
+	width: 95%;
+	height: 90%;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.splashscreen-header {
+	width: 100%;
+	height: 20%;
+	top: 10%;
+	display: flex;
+	align-items: center;
+}
+
+.splashscreen-header-picture {
+	height: 100%;
+}
+
+.splashscreen-header-image {
+	height: 100%;
+	border-radius: 30%;
+	object-fit: cover;
+}
+
+.splashscreen-header-text {
+	height: 100%;
+	font-size: 4em;
+	padding-left: 5%;
+	display: flex;
+	align-items: center;
+	color: white;
+}
+
+.splashscreen-body {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 1;
+	color: white;
+	padding: 20px;
+	height: 60%;
+}
+
+.splashscreen-body-text {
+	flex: 1;
+	font-size: 3em;
+	width: 50%;
+	flex-shrink: 1;
+}
+
+.splashscreen-value {
+	color: white;
+	font-size: 1.5em;
+	padding: 10px 20px;
+}
+/* .splashscreen-value-picture {
+	flex: 2;
+	display: flex;
+} */
+.splashscreen-value-image {
+	min-width: 400px;
+	min-height: 400px;
+	justify-content: center;
+	align-items: center;
+	padding: 5% 20px;
+}
+.splashscreen-value {
+	font-size: 4em;
 }

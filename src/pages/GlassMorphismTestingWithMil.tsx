@@ -18,7 +18,6 @@ render() {
       <High5 />
 		<Leaderboard />
 	  <PhotoGallery />
-      <SplashScreen />
     </div>
   );
 }

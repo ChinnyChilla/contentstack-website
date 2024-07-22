@@ -146,6 +146,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 						</div>
 					))}
 				</div>
+				
 		</div>
 		);
 	}

@@ -21,7 +21,8 @@ interface BoostMessageEntryType {
 		href: string,
 	},
 	giver_user_id: string,
-	group: Array<BoostMessageRecipientType>
+	group: Array<BoostMessageRecipientType>,
+	category: string,
 }
 
 interface High5State {
@@ -96,6 +97,7 @@ class High5 extends React.Component<{}, High5State> {
 								profile_url: recipient.receiver_profile_picture.href,
 							},
 							animationName,
+							value: entry.category,
 						});
 					})
 				});
@@ -109,7 +111,7 @@ class High5 extends React.Component<{}, High5State> {
 		};
 		fetchMessages();
 		this.intervalId = setInterval(fetchMessages, 5 * 60 * 1000);
-		this.addPairingInterval = setInterval(this.addPairing, 6 * 1000)
+		this.addPairingInterval = setInterval(this.addPairing, 3 * 1000)
 		this.deletePairingInterval = setInterval(this.popAndDelete, 10 * 1000);
 	}
 
@@ -265,6 +267,7 @@ class High5 extends React.Component<{}, High5State> {
 							giver={pairing.giver}
 							reciever={pairing.reciever}
 							animationName={pairing.animationName}
+							value={pairing.value}
 						/>
 					
 				))}

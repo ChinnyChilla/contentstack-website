@@ -13,9 +13,10 @@ export type High5PairingProps = {
 		profile_url: string,
 	};
 	animationName: string; // Add this line
+	value: string;
 };
 
-const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever, animationName }) => {
+const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, reciever, animationName, value }) => {
 	var animationDuration = '0.5s';
 	var animationDelay = '0s';
 	var animationDirection = 'normal';
@@ -38,7 +39,7 @@ const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, 
 				</div>
 			</div>
 			<div className="high5-pairing-icon">
-				<img className="image-icon" src="temp.png" alt="Icon" />
+				<img className="image-icon" src={`${value}_icon.png`} alt="Icon" />
 			</div>
 			<div className="high5-pairing-wrapper">
 				<div className="high5-pairing-avatar">

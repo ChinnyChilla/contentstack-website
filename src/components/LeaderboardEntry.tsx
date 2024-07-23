@@ -1,31 +1,34 @@
 import PropTypes from "prop-types";
 import "./LeaderboardEntry.css";
+interface LeaderboardEntryType {
+	display_name: string,
+	score: number,
+	profile_url: string
 
-const LeaderboardEntry = ({ className = "", name4 = "", menu55 = ""}) => {
+}
+  
+
+const LeaderboardEntry = ({display_name, score, profile_url} : LeaderboardEntryType) => {
   return (
-    <div className={`leaderboard-entry ${className}`}>
-      <div className="entry-content">
-        <div className="avatar-22">
-          <div className="avatar-background-wrapper">
-            <img
-              className="avatar-background-icon"
-              loading="lazy"
-              alt=""
-              src="/frame-6.svg"
-            />
-          </div>
-          <div className="avatar-name">
-            <div className="text1" />
-          </div>
-        </div>
-        <div className="name-4-wrapper">
-          <div className="name-4">{name4}</div>
-        </div>
-      </div>
-      <div className="menu-5-5-wrapper">
-        <img className="menu-5-5" loading="lazy" alt="" src={menu55} />
-      </div>
-    </div>
+	  <div className="leaderboard-card-entry">
+		  <div className="leaderboard-entry-left">
+			  <div className="leaderboard-entry-avatar">
+				  <img className="leaderboard-entry-image" alt="" src={profile_url} />
+			  </div>
+			  <div className="leaderboard-entry-name">
+				<span className="leaderboard-entry-name-span">
+					  {display_name}
+				</span>
+			  </div>
+		  </div>
+
+		  <div className="leaderboard-entry-score">
+			  <span>
+				  {score}
+			  </span>
+
+		  </div>
+	  </div>	
   );
 };
 

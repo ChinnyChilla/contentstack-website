@@ -1,32 +1,30 @@
-.milestones-child {
-  position: absolute;
-  height: 100%;
-  width: 150%;
-  left: 1%;
-  backdrop-filter: blur(35px);
-  border-radius: var(--br-11xl);
-  background-color: var(--color-gainsboro-100);
-  border: 3px solid var(--color-gray-300);
-  box-sizing: border-box;
-}
-.leaderboard,
-.milestones {
-  position: absolute;
-  width: 50%;
+.high5-container {
+	position: absolute;
+	height: 50%;
+	width: 75%;
+	top: 2%;
+	left: 2%;
+	backdrop-filter: blur(35px);
+	border-radius: var(--br-11xl);
+	background-color: var(--color-gainsboro-100);
+	border: 3px solid var(--color-gray-300);
+	box-sizing: border-box;
+
 }
 
-.leaderboard {
-  height: 11.72%;
-  top: 5%;
-  line-height: 30%;
-  display: inline-block;
+.high5-title-text
+{
+  position: absolute;
+  width: 50%;
+  font-size: 2em;
+	text-shadow: #ec7404 2px 2px 2px;
 }
-.milestones {
-  top: 2%;
-  left: 2%;
-  height: 51%;
-  font-size: var(--font-size-11xl);
-  color: var(--color-white);
-  font-family: var(--font-lexend);
+
+.high5-title-text {
+  height: 10%;
+  width: 100%;
   text-align: center;
+  display: inline-block;
+  color: white;
 }
+

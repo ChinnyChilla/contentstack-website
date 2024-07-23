@@ -1,11 +1,12 @@
 .background {
-  width: 100%;
-  position: relative;
-  background: #523199;
-  align-content: center;
-  height: 100vh;
-  overflow: hidden;
+	width: 100%;
+	position: relative;
+	background: #523199;
+	align-content: center;
+	height: 100vh;
+	overflow: hidden;
 }
+
 html,
 body {
 	width: 100%;

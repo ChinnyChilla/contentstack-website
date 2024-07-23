@@ -2,20 +2,23 @@ import React from "react";
 import SimpleText from "./SimpleText";
 import './PhotoGallery.css';
 import AwardCard from "./AwardCard";
+import SplashScreen from "./Splashscreen";
 
-interface MessageType {
-	creator_user_display_name: string;
-	creator_user_id: string;
-	message_content: string;
-	creator_user_profile_url: {
-		href: string;
-		title: string;
-	};
-	message_content_parsed: string;
+interface AwardCardType {
+	award_title_name: string,
+	award_user_display_name: string,
+	award_profile_url: {
+		title: string,
+		href: string,
+	}
 }
 
+interface BoostMessageType {
+
+}
 interface PageState {
-	messages: Array<MessageType>;
+	awardCards: Array<AwardCardType>;
+	boostMessages: Array<BoostMessageType>;
 	isLoading: boolean;
 	currentCarouselIndex: number;
 	isTransitioning: boolean;
@@ -34,7 +37,8 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		this.numClones = 6; // Number of items to clone
 
 		this.state = {
-			messages: [],
+			awardCards: [],
+			boostMessages: [],
 			isLoading: true,
 			currentCarouselIndex: 0,
 			isTransitioning: false,
@@ -54,7 +58,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			headers.set("api_key", process.env.REACT_APP_CONTENTSTACK_API_KEY || "");
 			headers.set("access_token", process.env.REACT_APP_CONTENTSTACK_ACCESS_TOKEN || "");
 
-			const url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/slack_message/entries?${parameters.toString()}`;
+			const url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/award_card/entries?${parameters.toString()}`;
 			console.log(`Fetched url ${url}`);
 			fetch(url, {
 				method: "GET",
@@ -66,9 +70,30 @@ class PhotoGallery extends React.Component<{}, PageState> {
 				}
 				return response.json();
 			}).then(data => {
+				console.log("this is for award cards")
 				console.log(data.entries);
 				this.setState({
-					messages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+					awardCards: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+				}, this.startCarousel);
+			}).catch(error => {
+				console.error('Fetch error:', error);
+			});
+			const boost_url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/boost_message/entries?${parameters.toString()}`;
+			console.log(`Fetched url ${url}`);
+			fetch(boost_url, {
+				method: "GET",
+				headers: headers
+			}).then(response => {
+				if (!response.ok) {
+					console.error('HTTP error:', response.status, response.statusText);
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			}).then(data => {
+				console.log("this is for boost messages")
+				console.log(data.entries);
+				this.setState({
+					boostMessages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
 					isLoading: false,
 				}, this.startCarousel);
 			}).catch(error => {
@@ -93,19 +118,19 @@ class PhotoGallery extends React.Component<{}, PageState> {
 	}
 
 	startCarousel = () => {
-		if (this.carouselInterval) {return;}
+		// if (this.carouselInterval) {return;}
 
-		this.carouselInterval = setInterval(() => {
-			this.setState((prevState) => {
-				const nextIndex = prevState.currentCarouselIndex + 1; // number of messages moved by (1)
-				const isLastIndex = nextIndex >= (prevState.messages.length + 1)
+		// this.carouselInterval = setInterval(() => {
+		// 	this.setState((prevState) => {
+		// 		const nextIndex = prevState.currentCarouselIndex + 1; // number of messages moved by (1)
+		// 		const isLastIndex = nextIndex >= (prevState.messages.length + 1)
 
-				return {
-					currentCarouselIndex: isLastIndex ? 0 : nextIndex,
-					isTransitioning: !isLastIndex,
-				};
-			});
-		}, 3000);
+		// 		return {
+		// 			currentCarouselIndex: isLastIndex ? 0 : nextIndex,
+		// 			isTransitioning: !isLastIndex,
+		// 		};
+		// 	});
+		// }, 3000);
 	}
 
 	render() {
@@ -119,35 +144,21 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			);
 		}
 
-		const { messages, currentCarouselIndex, isTransitioning } = this.state;
 
-		// Create a list with appended cloned items to achieve the looping effect
-		const clonedMessages = [...messages, ...messages.slice(0, this.numClones)];
+		var user = {
+			display_name: "Michael",
+			profile_url: "https://ca.slack-edge.com/TKLUV7DCL-U077W921K2L-5c933dd9a52e-512"
+		}
+		var message = "I love chicken";
+		var value = "Care";
+
+
 
 		return (
 			<div className="photo-gallery-container">
-				<div
-					className={`carousel-wrapper ${isTransitioning ? "" : "no-transition"}`}
-					style={{
-						display: 'flex',
-						transform: `translateX(-${currentCarouselIndex * (90 / 13)}%)`,
-					}}
-				>
-					{clonedMessages.map((message, index) => (
-						<div
-							key={index}
-							className="carousel-item"
-						>
-							<SimpleText
-								message={message.message_content_parsed}
-								creator_display_name={message.creator_user_display_name}
-								creator_profile_url={message.creator_user_profile_url.href}
-							/>
-						</div>
-					))}
-				</div>
-				
-		</div>
+					<AwardCard />
+					<SplashScreen giver={user} message={message} value={value} />
+			</div>
 		);
 	}
 }

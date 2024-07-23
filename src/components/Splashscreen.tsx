@@ -9,7 +9,6 @@ interface User {
 
 interface SplashScreenProps {
 	giver: User;
-	receiver: User;
 	value: string;
 	message: string;
 }
@@ -17,7 +16,6 @@ interface SplashScreenProps {
 interface SplashScreenState {
 	animationStage: string;
 	giver: User;
-	receiver: User;
 	value: string;
 	message: string;
 }
@@ -31,10 +29,6 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 			giver: {
 				display_name: this.props.giver.display_name,
 				profile_url: this.props.giver.profile_url
-			},
-			receiver: {
-				display_name: this.props.receiver.display_name,
-				profile_url: this.props.receiver.profile_url
 			},
 			value: this.props.value,
 			message: this.props.message
@@ -78,7 +72,7 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 							{this.state.message}
 						</div>
 						<div className="splashscreen-value-picture">
-							<img className="splashscreen-value-image" src={`${this.state.value}_icon.png`} alt={this.state.value} />
+							<img className="splashscreen-value-image" src={`${this.state.value}_icon_old.png`} alt={this.state.value} />
 						</div>
 						
 					</div>

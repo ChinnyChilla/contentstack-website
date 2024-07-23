@@ -6,16 +6,9 @@ import LeaderboardCard from "./LeaderboardCard";
 interface LeaderboardState {
 	users: Array<UserType>,
 	leaderboard: Array<LeaderboardType>,
-	coreValues: Array<CoreValue>,
+	coreValues: Array<LeaderboardEntryType>,
 	isLoading: boolean
   }
-
-  export interface CoreValue {
-	name: string;
-	count: number;
-	icon?: string;
-  }  
-  
 
 export interface LeaderboardEntryType {
 	name: string,
@@ -104,12 +97,40 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 			throw new Error('Network response was not ok');
 		  }
 		  const data = await response.json();
-		  
-		  const processedCoreValues = data.entries
-			.sort((a: CoreValue, b: CoreValue) => b.count - a.count)
-			.slice(0, 5);
+		  if (!data) {
+			throw new Error("Failed to find value leaderboard")
+		  }
+		  const entry_value: any = data.entries[0];
+
+		  var values = {
+			"Care": entry_value.care,
+			"Diverse": entry_value.diverse,
+			"Do_the_right_thing": entry_value.do_the_right_thing,
+			"Dreamers": entry_value.dreamer,
+			"Trendsetters": entry_value.trendsetters,
+			"Tribe": entry_value.tribe
+		  };
+
+		  var numerical_value = Object.entries(values);
+
+		  numerical_value.sort((a, b) => b[1] - a[1]);
+
+		  var top3 = numerical_value.slice(0, 3);
+
+		  var top3Value = Object.fromEntries(top3);
+
+		  console.log(top3Value);
+
+		  var leaderboardEntries = Object.entries(top3Value).map(([key, score]) => {
+			return {
+				name: key,
+				score: score,
+				image: `${key}_icon.png`
+			}
+		  })
+
 	  
-		  this.setState({ coreValues: processedCoreValues });
+		  this.setState({ coreValues: leaderboardEntries });
 		} catch (error) {
 		  console.error('Error fetching core values:', error);
 		}
@@ -168,25 +189,11 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 				key={index}
 			  />
 			))}
-			<LeaderboardCard
-			topic="top.booster"
-			leaderboard=>
-			{/* <div className="core"> */}
-			  {/* <div className="core-container">
-				<div className="top-core">
-				<h2>Top Core Values</h2> 
-				</div>
-				{this.state.coreValues.map((coreValue, index) => (
-				  <div key={index} className="core-value-item">
-					{coreValue.icon && <img src={coreValue.icon} alt={coreValue.name} className="core-value-icon" />}
-					<div className="core-value-info">
-					  <span className="core-value-name">{coreValue.name}</span>
-					  <span className="core-value-count">{coreValue.count} times</span>
-					</div>
-				  </div>
-				))}
-			  </div>
-			</div> */}
+			  <LeaderboardCard 
+			      topic={"Top Core Value"}
+				  leaderboard={this.state.coreValues}
+				  key={2}
+			  />
 		  </div>
 		);
 	  }}

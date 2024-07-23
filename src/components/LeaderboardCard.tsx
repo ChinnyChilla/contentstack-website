@@ -2,7 +2,6 @@ import react from "react"
 import LeaderboardEntry from "./LeaderboardEntry"
 import "./LeaderboardCard.css"
 import { LeaderboardEntryType } from "./Leaderboard"
-import { CoreValue } from "./Leaderboard"
 
 
 const LeaderboardCard = ({topic, leaderboard}: {topic: string, leaderboard: Array<LeaderboardEntryType>}) => {

@@ -1,8 +1,8 @@
 import React from "react"
-import Milestones from "../components/High5";
+import High5 from "../components/High5";
 import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "../components/PhotoGallery"
-import EarthCard from "../components/EarthCard";
+import SplashScreen from "../components/Splashscreen";
 import "./GlassMorphismTestingWithMil.css";
 
 
@@ -15,11 +15,9 @@ render() {
 	
     <div className="background">
       
-      <Milestones />
-		  {/* <EarthCard /> */}
+      <High5 />
 		<Leaderboard />
 	  <PhotoGallery />
-      
     </div>
   );
 }

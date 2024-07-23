@@ -4,8 +4,8 @@ import High5Pairing, { High5PairingProps } from './High5Pairing';
 
 const INITAL_PAIRING_AMOUNT = 6;
 
-const TOP_DIFFERENCE = 5;
-const SIDE_DIFFERENCE = 18;
+const TOP_DIFFERENCE = 8;
+const SIDE_DIFFERENCE = 20;
 
 interface BoostMessageRecipientType {
 	receiver_display_name: string,

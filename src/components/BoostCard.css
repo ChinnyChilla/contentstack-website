@@ -1,17 +1,17 @@
 .boost-card {
 	position: relative;
-	width: 319px;
-	height: 356px;
+	width: 100%;
+	height: 100%;
 	text-align: center;
 	font-size: var(--font-size-mini);
 	color: var(--color-white);
 	font-family: var(--font-manrope);
+	padding-right: 30px;
 }
 .boost-card-inner {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	
 	transition: transform 0.8s;
 	transform-style: preserve-3d;
 	background-color: #6B41B3;
@@ -45,6 +45,11 @@
 .boost-card-back {
 	transform: rotateY(180deg);
 	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+.boost-card-value::first-letter {
+	text-transform: capitalize;
 }
 
 .boost-card-name {
@@ -56,25 +61,12 @@
 	color: var(--color-white);
 	font-size: 1.2em;
 	align-items: center;
-	
 }
 .boost-card-profile {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	overflow: hidden;
-}
-
-.boost-avatar-container {
-	display: flex;
-	height: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: var(--br-31xl);
-	background-color: var(--color-limegreen-100);
-	overflow: hidden;
-	font-size: var(--font-size-4xs);
-	margin-right: 10px;
-	float: left;
 }
 
 .boost-card-text-container {
@@ -87,19 +79,10 @@
 	color: var(--color-lavender);
 	display: inline-block;
 	text-overflow: ellipsis;
-	word-wrap: break-word;
+	word-wrap: break-work;
+	padding: 10px;
 	overflow: hidden;
-}
-
-.boost-card {
-	position: relative;
-	width: 319px;
-	height: 356px;
-	text-align: left;
-	font-size: var(--font-size-mini);
-	color: var(--color-white);
-	font-family: var(--font-manrope);
-	backdrop-filter: blur(35px);
+	
 }
 
 span {
@@ -115,5 +98,27 @@ span {
 	overflow: hidden;
 	word-wrap: break-word;
 	font-size: 1.1em;
+	padding: 10px;
+	
 	/* display: inline-block; */
+}
+.boost-avatar-container {
+	display: flex;
+	width: 3vw;
+	/* Adjust percentage as needed */
+	height: 3vw;
+	/* This makes the height equal to the width, keeping it square */
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10px;
+}
+
+.boost-card-profile {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.boost-card-value {
+	font-size: 2em;
+	padding-top: 5%;
 }

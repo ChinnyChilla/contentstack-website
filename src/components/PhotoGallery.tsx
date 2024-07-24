@@ -32,6 +32,7 @@ interface PageState {
 	isLoading: boolean;
 	currentCarouselIndex: number;
 	isTransitioning: boolean;
+	combinedMessages: Array<AwardCardType | BoostMessageType>;
 }
 
 class PhotoGallery extends React.Component<{}, PageState> {
@@ -52,6 +53,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			isLoading: true,
 			currentCarouselIndex: 0,
 			isTransitioning: false,
+			combinedMessages: [],
 		};
 	}
 
@@ -84,7 +86,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 				console.log(data.entries);
 				this.setState({
 					awardCards: data.entries.slice(0, 11), // Ensure only 11 items are fetched
-				}, this.startCarousel);
+				}, this.combineAndSortMessages);
 			}).catch(error => {
 				console.error('Fetch error:', error);
 			});
@@ -105,7 +107,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 				this.setState({
 					boostMessages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
 					isLoading: false,
-				}, this.startCarousel);
+				}, this.combineAndSortMessages);
 			}).catch(error => {
 				console.error('Fetch error:', error);
 			});
@@ -116,6 +118,9 @@ class PhotoGallery extends React.Component<{}, PageState> {
 
 		// Set interval for subsequent fetches
 		this.intervalId = setInterval(fetchMessages, 5 * 60 * 1000);
+
+		// Start the carousel
+		this.startCarousel();
 	}
 
 	componentWillUnmount(): void {
@@ -127,20 +132,25 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		}
 	}
 
+	combineAndSortMessages = () => {
+		const { awardCards, boostMessages } = this.state;
+
+		const combinedMessages = [...awardCards, ...boostMessages].sort((a, b) => {
+			return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+		});
+
+		this.setState({ combinedMessages });
+	}
+
 	startCarousel = () => {
-		// if (this.carouselInterval) {return;}
-
-		// this.carouselInterval = setInterval(() => {
-		// 	this.setState((prevState) => {
-		// 		const nextIndex = prevState.currentCarouselIndex + 1; // number of messages moved by (1)
-		// 		const isLastIndex = nextIndex >= (prevState.messages.length + 1)
-
-		// 		return {
-		// 			currentCarouselIndex: isLastIndex ? 0 : nextIndex,
-		// 			isTransitioning: !isLastIndex,
-		// 		};
-		// 	});
-		// }, 3000);
+		this.carouselInterval = setInterval(() => {
+			this.setState((prevState) => {
+				const nextIndex = (prevState.currentCarouselIndex + 1) % prevState.combinedMessages.length;
+				return {
+					currentCarouselIndex: nextIndex,
+				};
+			});
+		}, 1000);
 	}
 
 	render() {
@@ -154,21 +164,21 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			);
 		}
 
-
-		var user = {
-			display_name: "Michael",
-			profile_url: "https://ca.slack-edge.com/TKLUV7DCL-U077W921K2L-5c933dd9a52e-512"
-		}
-		var message = "I love chicken";
-		var value = "Care";
-
-
+		const { combinedMessages, currentCarouselIndex } = this.state;
 
 		return (
 			<div className="photo-gallery-container">
-					<AwardCard />
-					<BoostCard message={this.state.boostMessages[0].message_content} giver_display_name={this.state.boostMessages[0].giver_display_name} giver_profile_url={this.state.boostMessages[0].giver_profile_url.href} category="care"/>
-					{/* <SplashScreen giver={user} message={message} value={value} /> */}
+				<div className="carousel-wrapper" style={{ transform: `translateX(-${currentCarouselIndex * 35}%)` }}>
+					{combinedMessages.map((item, index) => (
+						<div className="carousel-item" key={index}>
+							{'award_title_name' in item ? (
+								<AwardCard recipient_display_name={item.award_user_display_name} recipient_profile_url={item.award_profile_url.href} award_name={item.award_title_name} />
+							) : (
+								<BoostCard message={item.message_content} giver_display_name={item.giver_display_name} giver_profile_url={item.giver_profile_url.href} category={item.category} />
+							)}
+						</div>
+					))}
+				</div>
 			</div>
 		);
 	}

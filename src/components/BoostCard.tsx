@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import "./SimpleText.css";
-import { create } from "domain";
 import './BoostCard.css'
 
 export type BoostCardType = {
@@ -31,7 +30,7 @@ const BoostCard: FunctionComponent<BoostCardType> = ({ message, giver_display_na
 				</div>
 				<div className="boost-card-back">
 					<div className="boost-card-value">
-						{category}
+						{category == "do_the_right_thing" ? "Do the Right Thing" : category}
 					</div>
 					<div className="boost-card-image">
 						<img src={`${category}_icon.png`} />

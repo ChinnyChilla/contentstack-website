@@ -1,13 +1,12 @@
 .photo-gallery-container {
-	width: 76%;
-	height: fit-content;
+	width: 70%;
+	height: 35vh;
 	position: absolute;
 	left: 1.5%;
 	top: 60%;
 	overflow: hidden;
 	right: 10%;
 	padding-top: 0%;
-	padding-bottom: 6%;
 	padding-left: 0.01%;
 }
 
@@ -28,7 +27,9 @@
 
 .carousel-wrapper {
 	display: flex;
-	transition: transform 1s ease-in-out;
+	transition: transform 0.5s ease-in-out;
+	width: 100%;
+	height: 100%;
 }
 
 .carousel-wrapper.no-transition {
@@ -36,7 +37,11 @@
 }
 
 .carousel-item {
-	min-width: calc(95% / 13);
-	height: 100% ; 
-	transition: transform 0.5s ease-in-out;
+	flex: 0 0 25%;
+	margin: 0 5%;
+	box-sizing: border-box;
+}
+.carousel-item img {
+	width: 100%;
+	height: auto;
 }

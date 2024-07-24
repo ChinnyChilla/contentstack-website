@@ -1,82 +1,59 @@
-.award-card-child,
-.frame-icon13 {
-  position: absolute;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.award-card-child {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: var(--br-11xl);
-backdrop-filter: blur(35px);
-}
-.frame-icon13 {
-  height: 50%;
-  width: 50%;
-  top: 24.56%;
-  right: 25.33%;
-  bottom: 25.44%;
-  left: 24.67%;
-}
-.text13 {
-  position: absolute;
-  top: calc(50% - 4.1px);
-  left: calc(50% + 0.8px);
-  line-height: 9px;
-}
-.frame13 {
-  position: absolute;
-  right: 0.8px;
-  bottom: 0.8px;
-  border-radius: var(--br-8xs-5);
-  background-color: var(--color-limegreen-200);
-  border: 1.5px solid var(--color-white);
-  box-sizing: border-box;
-  width: 9px;
-  height: 9px;
-}
-.avatar-239 {
-  position: absolute;
-  height: 25.28%;
-  width: 28.21%;
-  top: 20.51%;
-  right: 35.74%;
-  bottom: 54.21%;
-  left: 36.05%;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: var(--br-31xl);
-  background-color: var(--color-limegreen-100);
-  overflow: hidden;
-  text-align: left;
-  font-size: var(--font-size-4xs);
-  color: var(--color-white);
-}
-.name-here12,
-.thank-you-award1 {
-  position: absolute;
-  height: 3.65%;
-  width: 98.75%;
-  top: 51.69%;
-  left: 0.63%;
-  line-height: 9px;
-  display: inline-block;
-}
-.thank-you-award1 {
-  height: 2.25%;
-  top: 62.36%;
-}
 .award-card {
-  position: relative;
-  width: 319px;
-  height: 356px;
-  text-align: center;
-  font-size: var(--font-size-mini);
-  color: var(--color-lavender);
-  font-family: var(--font-manrope);
-  
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: var(--font-size-mini);
+	color: var(--color-white);
+	font-family: var(--font-manrope);
+	background-color: #6B41B3;
+	border-radius: 10px;
+	padding: 20px;
+	/* Optional: To add some padding inside the card */
+}
+
+.award-card-image-container {
+	width: 50%;
+	/* Adjust as needed */
+	padding-top: 50%;
+	/* This ensures a square container based on width */
+	position: relative;
+	/* Required for absolute positioning of the image */
+	margin: 0 auto;
+	/* Centers the container */
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
+	background-color: var(--color-limegreen-100);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.award-card-profile {
+	position: absolute;
+	/* To fit within the container */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	/* Ensures the image is circular */
+}
+
+.award-card-recipient {
+	margin-top: 20px;
+	/* Adjust as needed */
+	font-size: 1.5em;
+	color: var(--color-white);
+	padding-bottom: 2%;
+}
+
+.award-card-award-title {
+	margin-top: 10px;
+	/* Adjust as needed */
+	color: var(--color-white);
+	font-weight: bold;
+	font-size: 1.5em;
 }

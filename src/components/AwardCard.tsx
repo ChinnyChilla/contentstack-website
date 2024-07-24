@@ -2,21 +2,19 @@ import { FunctionComponent } from "react";
 import "./AwardCard.css";
 
 export type AwardCardType = {
-  className?: string;
+	recipient_display_name: string;
+	recipient_profile_url: string;
+	award_name: string
 };
 
-const AwardCard: FunctionComponent<AwardCardType> = ({ className = "" }) => {
+const AwardCard: FunctionComponent<AwardCardType> = ({recipient_display_name, recipient_profile_url, award_name}) => {
   return (
-    <div className={`award-card ${className}`}>
-      <img className="award-card-child" alt="" src="/rectangle-47-1.svg" />
-      <div className="avatar-239">
-        <img className="frame-icon13" alt="" src="/frame-10.svg" />
-        <div className="frame13">
-          <div className="text13" />
-        </div>
+    <div className="award-card">
+		<div className="award-card-image-container">
+			  <img className="award-card-profile" src={recipient_profile_url}/>
       </div>
-      <div className="name-here12">Name Here</div>
-      <b className="thank-you-award1">Thank You Award Recipient</b>
+      <div className="award-card-recipient">{recipient_display_name}</div>
+      <b className="award-card-award-title">{award_name} Recipient</b>
     </div>
   );
 };

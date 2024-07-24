@@ -1,39 +1,45 @@
 import { FunctionComponent } from "react";
-import "./BoostCard.css";
+import "./SimpleText.css";
+import { create } from "domain";
+import './BoostCard.css'
 
 export type BoostCardType = {
-  className?: string;
+	message: string;
+	giver_display_name: string;
+	giver_profile_url: string;
+	category: string
 };
 
-const BoostCard: FunctionComponent<BoostCardType> = ({ className = "" }) => {
-  return (
-    <div className={`boost-card ${className}`}>
-      <img className="boost-card-child" alt="" src="/rectangle-47-1.svg" />
-      <div className="new-boost1">New Boost!</div>
-      <div className="just-boosted-people-container3">
-        <p className="just-boosted-people3">
-          <b className="b9">@____</b>
-          <span> Just boosted people!</span>
-        </p>
-        <p className="just-boosted-people3">Now is it normal?</p>
-        <p className="here-is-the1">Here is the boost message!</p>
-        <p className="just-boosted-people3">
-          <span>{`Thank you `}</span>
-          <b className="b9">@__</b>
-          <span className="b9">{` and `}</span>
-          <b className="b9">@____</b>
-        </p>
-      </div>
-      <div className="avatar-205">
-        <img className="frame-icon20" alt="" src="/frame-9.svg" />
-        <div className="frame20">
-          <div className="text20" />
-        </div>
-        <img className="image-12-icon1" alt="" src="/image-12@2x.png" />
-      </div>
-      <img className="boost-card-item" alt="" src="/rectangle-40@2x.png" />
-    </div>
-  );
+const BoostCard: FunctionComponent<BoostCardType> = ({ message, giver_display_name, giver_profile_url, category }) => {
+
+	const createMarkup = (html: any) => {
+		return { __html: html };
+	}
+	return (
+		<div className="boost-card">
+			<div className="boost-card-inner">
+				<div className="boost-card-front">
+					<div className="boost-card-header">
+						<div className="boost-avatar-container">
+							<img className="boost-card-profile" alt="" src={giver_profile_url} />
+						</div>
+						<div className="boost-card-name">{giver_display_name}</div>
+					</div>
+					<div className="boost-card-text-container">
+						<span className="boost-card-message-body-text" dangerouslySetInnerHTML={createMarkup(message)} />
+					</div>
+				</div>
+				<div className="boost-card-back">
+					<div className="boost-card-value">
+						{category}
+					</div>
+					<div className="boost-card-image">
+						<img src={`${category}_icon.png`} />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default BoostCard;

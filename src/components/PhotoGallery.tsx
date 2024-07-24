@@ -2,6 +2,7 @@ import React from "react";
 import SimpleText from "./SimpleText";
 import './PhotoGallery.css';
 import AwardCard from "./AwardCard";
+import BoostCard from "./BoostCard";
 import SplashScreen from "./Splashscreen";
 
 interface AwardCardType {
@@ -10,11 +11,20 @@ interface AwardCardType {
 	award_profile_url: {
 		title: string,
 		href: string,
-	}
+	},
+	created_at: string,
 }
 
 interface BoostMessageType {
-
+	message_content: string,
+	giver_user_id: string,
+	giver_display_name: string,
+	giver_profile_url: {
+		title: string,
+		href: string,
+	}
+	category: string,
+	created_at: string
 }
 interface PageState {
 	awardCards: Array<AwardCardType>;
@@ -157,7 +167,8 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		return (
 			<div className="photo-gallery-container">
 					<AwardCard />
-					<SplashScreen giver={user} message={message} value={value} />
+					<BoostCard message={this.state.boostMessages[0].message_content} giver_display_name={this.state.boostMessages[0].giver_display_name} giver_profile_url={this.state.boostMessages[0].giver_profile_url.href} category="care"/>
+					{/* <SplashScreen giver={user} message={message} value={value} /> */}
 			</div>
 		);
 	}

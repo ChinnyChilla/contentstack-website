@@ -3,7 +3,7 @@
 	bottom: 7.38%;
 	left: 2.5%;
 	position: relative;
-	height: 45%;
+	height: fit-content;
 	width: 65%;
 	border-radius: var(--br-11xl);
 	background-color: #885CD0;

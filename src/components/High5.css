@@ -7,7 +7,7 @@
 	backdrop-filter: blur(35px);
 	border-radius: var(--br-11xl);
 	background-color: #885CD0;
-	border: 3px solid var(--color-gray-300);
+	border: 3px solid #885CD0;
 	box-sizing: border-box;
 }
 

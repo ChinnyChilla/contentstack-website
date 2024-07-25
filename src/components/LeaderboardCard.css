@@ -3,7 +3,7 @@
 	bottom: 7.38%;
 	left: 2.5%;
 	position: relative;
-	height: 50%;
+	height: 45%;
 	width: 65%;
 	border-radius: var(--br-11xl);
 	background-color: #885CD0;
@@ -16,6 +16,7 @@
 	width: 100%;
 	margin-bottom: 5%;
 	padding-top: 5%;
+	font-size: 1.5em;
 }
 
 .leaderboard-card-entry {

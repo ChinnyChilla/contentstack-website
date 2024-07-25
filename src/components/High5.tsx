@@ -111,7 +111,7 @@ class High5 extends React.Component<{}, High5State> {
 		};
 		fetchMessages();
 		this.intervalId = setInterval(fetchMessages, 5 * 60 * 1000);
-		this.addPairingInterval = setInterval(this.addPairing, 3 * 1000)
+		this.addPairingInterval = setInterval(this.addPairing, 6 * 1000)
 		this.deletePairingInterval = setInterval(this.popAndDelete, 10 * 1000);
 	}
 

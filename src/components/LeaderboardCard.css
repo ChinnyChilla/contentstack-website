@@ -1,15 +1,15 @@
 .leaderboard-card-container {
-	top: 13.4%;
+	top: 0;
 	bottom: 7.38%;
 	left: 2.5%;
 	position: relative;
 	height: 50%;
 	width: 65%;
-	backdrop-filter: blur(35px);
 	border-radius: var(--br-11xl);
-	background-color: var(--color-gainsboro-100);
-	border: 3px solid var(--color-gray-300);
+	background-color: #885CD0;
 	box-sizing: border-box;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .leaderboard-card-topic {
 	text-align: center;
@@ -29,8 +29,8 @@
 }
 .rank {
 	font-weight: bold;
-	margin-right: 10px;
-	min-width: 20px;
+	margin-right: 10%;
+	min-width: 20%;
 	text-align: center;
   }
   
@@ -48,8 +48,8 @@
   }
   
   .entry-icon {
-	width: 40px;
-	height: 40px;
+	width: 40%;
+	height: 40%;
 	border-radius: 50%;
 	margin-right: 10px;
   }

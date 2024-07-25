@@ -6,10 +6,7 @@
   right: 0;
   bottom: 0;
   left: 2%;
-  backdrop-filter: blur(35px);
-  border-radius: var(--br-11xl);
-  background-color: var(--color-gainsboro-100);
-  border: 3px solid var(--color-gray-300);
+  background-color: #885CD0;
   box-sizing: border-box;
 }
 

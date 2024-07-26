@@ -14,7 +14,7 @@ const AwardCard: FunctionComponent<AwardCardType> = ({recipient_display_name, re
 			  <img className="award-card-profile" src={recipient_profile_url}/>
       </div>
       <div className="award-card-recipient">{recipient_display_name}</div>
-      <b className="award-card-award-title">{award_name} Recipient</b>
+      <b className="award-card-award-title">{award_name == "null" ? "Award" : award_name} Recipient</b>
     </div>
   );
 };

@@ -1,10 +1,8 @@
 import React from "react";
-import SimpleText from "./SimpleText";
 import './PhotoGallery.css';
 import AwardCard from "./AwardCard";
 import BoostCard from "./BoostCard";
-import SplashScreen from "./Splashscreen";
-
+// import PubNub from "pubnub"
 interface AwardCardType {
 	award_title_name: string,
 	award_user_display_name: string,
@@ -17,6 +15,7 @@ interface AwardCardType {
 
 interface BoostMessageType {
 	message_content: string,
+	message_content_parsed: string,
 	giver_user_id: string,
 	giver_display_name: string,
 	giver_profile_url: {
@@ -39,6 +38,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 	intervalId: NodeJS.Timer | null;
 	carouselInterval: NodeJS.Timer | null;
 	numClones: number;
+	// PubNub: PubNub;
 
 	constructor(props: any) {
 		super(props);
@@ -47,6 +47,15 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		this.carouselInterval = null;
 		this.numClones = 6; // Number of items to clone
 
+		var publishKey = process.env.REACT_APP_PUBNUB_PUBLISHKEY
+		var subscribeKey = process.env.REACT_APP_PUBNUB_SUBSCRIBEKEY ?? ""
+
+		// this.PubNub = new PubNub({
+		// 	publishKey: process.env.REACT_APP_PUBNUB_PUBLISHKEY,
+		// 	subscribeKey: subscribeKey,
+		// 	userId: "server"
+		// })
+
 		this.state = {
 			awardCards: [],
 			boostMessages: [],
@@ -54,10 +63,16 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			currentCarouselIndex: 0,
 			isTransitioning: false,
 			combinedMessages: [],
+			
 		};
 	}
 
 	componentDidMount() {
+
+		// this.addListener();
+
+		// this.PubNub.subscribe({ channels: ["website"]});
+
 		const fetchMessages = () => {
 			const parameters = new URLSearchParams({
 				environment: process.env.REACT_APP_CONTENTSTACK_ENVIRONMENT_NAME || "",
@@ -115,13 +130,17 @@ class PhotoGallery extends React.Component<{}, PageState> {
 
 		// Initial fetch
 		fetchMessages();
-
-		// Set interval for subsequent fetches
-		this.intervalId = setInterval(fetchMessages, 5 * 60 * 1000);
-
 		// Start the carousel
 		this.startCarousel();
 	}
+
+	// addListener = () => {
+	// 	this.PubNub.addListener({
+	// 		message: ({channel, message, publisher}) => {
+	// 			console.log(message);
+	// 		}
+	// 	})
+	// }
 
 	componentWillUnmount(): void {
 		if (this.intervalId) {
@@ -130,6 +149,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		if (this.carouselInterval) {
 			clearInterval(this.carouselInterval);
 		}
+		// this.PubNub.unsubscribeAll();
 	}
 
 	combineAndSortMessages = () => {
@@ -143,14 +163,19 @@ class PhotoGallery extends React.Component<{}, PageState> {
 	}
 
 	startCarousel = () => {
+		if (this.carouselInterval) { return; }
+
 		this.carouselInterval = setInterval(() => {
 			this.setState((prevState) => {
-				const nextIndex = (prevState.currentCarouselIndex + 1) % prevState.combinedMessages.length;
+				const nextIndex = prevState.currentCarouselIndex + 1;
+				const isLastIndex = nextIndex >= (prevState.combinedMessages.length + 1)
+
 				return {
-					currentCarouselIndex: nextIndex,
+					currentCarouselIndex: isLastIndex ? 0 : nextIndex,
+					isTransitioning: !isLastIndex,
 				};
 			});
-		}, 1000);
+		}, 3000);
 	}
 
 	render() {
@@ -164,17 +189,23 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			);
 		}
 
-		const { combinedMessages, currentCarouselIndex } = this.state;
+		const { combinedMessages, currentCarouselIndex,  isTransitioning } = this.state;
+
+		const clonedMessages = this.state.combinedMessages.slice(0, 4);
+
+		var messagesToRender = combinedMessages.concat(clonedMessages)
 
 		return (
 			<div className="photo-gallery-container">
-				<div className="carousel-wrapper" style={{ transform: `translateX(-${currentCarouselIndex * 35}%)` }}>
-					{combinedMessages.map((item, index) => (
+				<div className={`carousel-wrapper ${isTransitioning ? "" : "no-transition"}`} style={{ transform: `translateX(-${currentCarouselIndex * 35}%)` }}>
+					{messagesToRender.map((item, index) => (
 						<div className="carousel-item" key={index}>
 							{'award_title_name' in item ? (
 								<AwardCard recipient_display_name={item.award_user_display_name} recipient_profile_url={item.award_profile_url.href} award_name={item.award_title_name} />
 							) : (
-								<BoostCard message={item.message_content} giver_display_name={item.giver_display_name} giver_profile_url={item.giver_profile_url.href} category={item.category} />
+								<BoostCard message={item.message_content_parsed == null ? item.message_content : item.message_content_parsed} 
+											giver_display_name={item.giver_display_name == "" ? item.giver_profile_url.title : item.giver_display_name} 
+											giver_profile_url={item.giver_profile_url.href} category={item.category} />
 							)}
 						</div>
 					))}

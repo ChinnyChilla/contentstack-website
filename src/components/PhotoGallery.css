@@ -45,3 +45,6 @@
 	width: 100%;
 	height: auto;
 }
+.carousel-wrapper.no-transition {
+	transition: none;
+}

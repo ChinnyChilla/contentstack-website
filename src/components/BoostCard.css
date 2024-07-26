@@ -15,7 +15,7 @@
 	transition: transform 0.8s;
 	transform-style: preserve-3d;
 	background-color: #6B41B3;
-	border-radius: 10px;
+	border-radius: 10%;
 }
 
 .boost-card:hover .boost-card-inner {
@@ -37,7 +37,9 @@
 }
 .boost-card-header {
 	height: fit-content;
-	padding: 10px;
+	padding-left: 5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 	height: 15%;
 	display: flex;
 	align-items: center;
@@ -97,7 +99,7 @@ span {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	word-wrap: break-word;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	padding: 10px;
 	
 	/* display: inline-block; */
@@ -119,6 +121,10 @@ span {
 	object-fit: cover;
 }
 .boost-card-value {
-	font-size: 2em;
+	top: 40%;
+	font-size: 1.5em;
 	padding-top: 5%;
+	text-wrap: nowrap;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
 }

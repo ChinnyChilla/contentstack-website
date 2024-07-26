@@ -171,7 +171,7 @@ class High5 extends React.Component<{}, High5State> {
 	}
 
 	popAndDelete = () => {
-		console.log("delete called")
+		console.log("deletePairing called")
 		if (this.state.pairings.length === 0) return;
 		
 		this.setState((prevState) => {

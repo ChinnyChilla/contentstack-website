@@ -10,7 +10,21 @@ export type BoostCardType = {
 };
 
 const BoostCard: FunctionComponent<BoostCardType> = ({ message, giver_display_name, giver_profile_url, category }) => {
+	let valueEmoji;
 
+	switch (category) {
+		case "tribe":
+			valueEmoji = "🌻"
+			break;
+		case "trendsetters":
+			valueEmoji = "💡"
+			break;
+		case "dreamer":
+			valueEmoji = "✨"
+			break;
+		default:
+			valueEmoji = "❤️"
+	}
 	const createMarkup = (html: any) => {
 		return { __html: html };
 	}
@@ -30,7 +44,7 @@ const BoostCard: FunctionComponent<BoostCardType> = ({ message, giver_display_na
 				</div>
 				<div className="boost-card-back">
 					<div className="boost-card-value">
-						{category == "do_the_right_thing" ? "Do the Right Thing" : category}
+						{valueEmoji} {category == "do_the_right_thing" ? "Do the Right Thing" : category.charAt(0).toUpperCase() + category.slice(1)} {valueEmoji}
 					</div>
 					<div className="boost-card-image">
 						<img src={`${category}_icon.png`} />

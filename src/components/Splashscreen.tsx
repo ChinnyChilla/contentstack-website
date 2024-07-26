@@ -49,8 +49,29 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 		}, 10 * 1000)
 	}
 
+	createMarkup = (html: any) => {
+		return { __html: html };
+	}
 	// componentDidMount() 
 	render() {
+
+		let valueEmoji;
+
+		switch (this.state.value) {
+			case "tribe":
+				valueEmoji = "🌻"
+				break;
+			case "trendsetters":
+				valueEmoji = "💡"
+				break;
+			case "dreamer":
+				valueEmoji = "✨"
+				break;
+			default:
+				valueEmoji = "❤️"
+		}
+		
+
 		return(
 			<div className={`splashscreen ${this.state.animationStage}`}>
 				{
@@ -69,7 +90,7 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 					</div>
 					<div className="splashscreen-body">
 						<div className="splashscreen-body-text">
-							{this.state.message}
+							<span dangerouslySetInnerHTML={this.createMarkup(this.state.message)} />
 						</div>
 						<div className="splashscreen-value-picture">
 							<img className="splashscreen-value-image" src={`${this.state.value}_icon_old.png`} alt={this.state.value} />
@@ -77,7 +98,7 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 						
 					</div>
 					<div className="splashscreen-value">
-						Living our Value: ❤️ {this.state.value} ❤️
+						Living our Value: {valueEmoji} {this.state.value == "do_the_right_thing" ? "Do the Right Thing" : this.state.value.charAt(0).toUpperCase() + this.state.value.slice(1)} {valueEmoji}
 					</div>
 				
 				</div>

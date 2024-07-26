@@ -29,6 +29,7 @@
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
+	text-wrap: nowrap;
 }
 .leaderboard-entry-score {
 	padding-right: 5%;

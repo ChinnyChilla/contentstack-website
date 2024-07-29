@@ -7,6 +7,13 @@
 	overflow: hidden;
 }
 
+.vertical-line {
+	width: 2px;
+	height: 100vh;
+	background-color: white;
+    margin: 0 auto;
+}
+
 html,
 body {
 	width: 100%;

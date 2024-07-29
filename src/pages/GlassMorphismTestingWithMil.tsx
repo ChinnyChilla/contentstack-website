@@ -155,6 +155,7 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 
 		return (
 			<div className="background">
+				<div className="vertical-line"></div>
 				<High5 key={`high5-${reloadKey}`} />
 				<Leaderboard />
 				<PhotoGallery key={`photo-${reloadKey}`} />

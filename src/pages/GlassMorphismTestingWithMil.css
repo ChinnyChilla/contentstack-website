@@ -8,8 +8,11 @@
 }
 
 .vertical-line {
+	position: absolute;
+	left: 75%;
 	width: 2px;
-	height: 100vh;
+	height: 96%;
+	top: 2%;
 	background-color: white;
     margin: 0 auto;
 }

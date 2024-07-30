@@ -24,7 +24,7 @@ interface GlassMorphismTestingWithMilState {
 	showSplashScreen: boolean;
 	currentMessage: BoostMessageType | null;
 	processedTitles: Array<string>;
-	reloadKey: number; // Add this to force re-render
+	reloadKey: number;
 }
 
 class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTestingWithMilState> {
@@ -39,17 +39,15 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 			showSplashScreen: false,
 			currentMessage: null,
 			processedTitles: [],
-			reloadKey: 0, // Initialize reloadKey
+			reloadKey: 0,
 		};
 	}
 
 	componentDidMount() {
 		this.fetchBoostMessages();
 
-		// Set interval for subsequent fetches
 		this.intervalId = setInterval(this.fetchBoostMessages, 60 * 1000);
 
-		// Set interval for checking the queue
 		this.checkQueueInterval = setInterval(this.checkQueue, 30 * 1000);
 	}
 

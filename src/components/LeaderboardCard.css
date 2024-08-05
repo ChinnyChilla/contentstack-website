@@ -12,8 +12,6 @@
   
 
 .leaderboard-card-container {
-	top: 0;
-	bottom: 7.38%;
 	left: 2.5%;
 	position: relative;
 	height: fit-content;
@@ -21,8 +19,7 @@
 	border-radius: var(--br-11xl);
 	background-color: #885CD0;
 	box-sizing: border-box;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 .leaderboard-card-topic {
 	text-align: left;

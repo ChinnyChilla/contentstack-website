@@ -4,8 +4,11 @@ import High5Pairing, { High5PairingProps } from './High5Pairing';
 
 const INITAL_PAIRING_AMOUNT = 6;
 
-const TOP_DIFFERENCE = 8;
-const SIDE_DIFFERENCE = 20;
+const TOP_DIFFERENCE = 10;
+const SIDE_DIFFERENCE = 25;
+
+const TOP_LIMIT = 75;
+const SIDE_LIMIT = 70;
 
 interface BoostMessageRecipientType {
 	receiver_display_name: string,
@@ -32,13 +35,11 @@ interface High5State {
 }
 
 class High5 extends React.Component<{}, High5State> {
-	intervalId: NodeJS.Timer | null;
 	deletePairingInterval: NodeJS.Timer | null;
 	addPairingInterval: NodeJS.Timer | null;
 
 	constructor(props: any) {
 		super(props);
-		this.intervalId = null;
 		this.deletePairingInterval = null;
 		this.addPairingInterval = null;
 		this.state = {
@@ -110,15 +111,11 @@ class High5 extends React.Component<{}, High5State> {
 			});
 		};
 		fetchMessages();
-		this.intervalId = setInterval(fetchMessages, 5 * 60 * 1000);
-		this.addPairingInterval = setInterval(this.addPairing, 6 * 1000)
+		this.addPairingInterval = setInterval(this.addPairing, 5 * 1000)
 		this.deletePairingInterval = setInterval(this.popAndDelete, 10 * 1000);
 	}
 
 	componentWillUnmount(): void {
-		if (this.intervalId) {
-			clearInterval(this.intervalId);
-		}
 		if (this.addPairingInterval) {
 			clearInterval(this.addPairingInterval);
 		}
@@ -140,8 +137,8 @@ class High5 extends React.Component<{}, High5State> {
 			let left: number = 0;
 			while (!isValidPosition && attempts < 100) {
 				attempts += 1;
-				top = 5 + Math.random() * 70;
-				left = Math.random() * 80;
+				top = 5 + Math.random() * TOP_LIMIT;
+				left = Math.random() * SIDE_LIMIT;
 				isValidPosition = pairings.every(pairing => {
 					const topDiff = Math.abs(parseFloat(pairing.top) - top);
 					const leftDiff = Math.abs(parseFloat(pairing.left) - left);
@@ -220,8 +217,8 @@ class High5 extends React.Component<{}, High5State> {
 
 		while (!isValidPosition && attempts < 100) {
 			attempts += 1;
-			top = 5 + Math.random() * 70;
-			left = Math.random() * 80;
+			top = 5 + Math.random() * TOP_LIMIT;
+			left = Math.random() * SIDE_LIMIT;
 			isValidPosition = this.state.pairings.every(pairing => {
 				const topDiff = Math.abs(parseFloat(pairing.top) - top);
 				const leftDiff = Math.abs(parseFloat(pairing.left) - left);

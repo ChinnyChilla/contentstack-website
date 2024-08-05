@@ -123,7 +123,7 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 
 		  var leaderboardEntries = Object.entries(top3Value).map(([key, score]) => {
 			return {
-				name: key,
+				name: key == "Do_the_right_thing" ? "Do the Right Thing" : key,
 				score: score,
 				image: `${key}_icon.png`
 			}
@@ -181,7 +181,7 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 		}
 		return (
 		  <div className="leaderboard-container">
-			<b className="monthly-leaderboard">Monthly Leaderboard</b>
+			{/* <b className="monthly-leaderboard">Monthly Leaderboard</b> */}
 			{this.state.leaderboard.map((leaderboardRanking, index) => (
 			  <LeaderboardCard
 				topic={leaderboardRanking.topic}

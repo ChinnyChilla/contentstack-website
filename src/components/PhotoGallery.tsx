@@ -2,7 +2,6 @@ import React from "react";
 import './PhotoGallery.css';
 import AwardCard from "./AwardCard";
 import BoostCard from "./BoostCard";
-// import PubNub from "pubnub"
 interface AwardCardType {
 	award_title_name: string,
 	award_user_display_name: string,
@@ -38,7 +37,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 	intervalId: NodeJS.Timer | null;
 	carouselInterval: NodeJS.Timer | null;
 	numClones: number;
-	// PubNub: PubNub;
+	
 
 	constructor(props: any) {
 		super(props);
@@ -46,15 +45,6 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		this.intervalId = null;
 		this.carouselInterval = null;
 		this.numClones = 6; // Number of items to clone
-
-		var publishKey = process.env.REACT_APP_PUBNUB_PUBLISHKEY
-		var subscribeKey = process.env.REACT_APP_PUBNUB_SUBSCRIBEKEY ?? ""
-
-		// this.PubNub = new PubNub({
-		// 	publishKey: process.env.REACT_APP_PUBNUB_PUBLISHKEY,
-		// 	subscribeKey: subscribeKey,
-		// 	userId: "server"
-		// })
 
 		this.state = {
 			awardCards: [],
@@ -69,9 +59,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 
 	componentDidMount() {
 
-		// this.addListener();
-
-		// this.PubNub.subscribe({ channels: ["website"]});
+		
 
 		const fetchMessages = () => {
 			const parameters = new URLSearchParams({
@@ -134,14 +122,6 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		this.startCarousel();
 	}
 
-	// addListener = () => {
-	// 	this.PubNub.addListener({
-	// 		message: ({channel, message, publisher}) => {
-	// 			console.log(message);
-	// 		}
-	// 	})
-	// }
-
 	componentWillUnmount(): void {
 		if (this.intervalId) {
 			clearInterval(this.intervalId);
@@ -149,7 +129,6 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		if (this.carouselInterval) {
 			clearInterval(this.carouselInterval);
 		}
-		// this.PubNub.unsubscribeAll();
 	}
 
 	combineAndSortMessages = () => {
@@ -157,7 +136,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 
 		const combinedMessages = [...awardCards, ...boostMessages].sort((a, b) => {
 			return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-		});
+		}).slice(0, 15);
 
 		this.setState({ combinedMessages });
 	}

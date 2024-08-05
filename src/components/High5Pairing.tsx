@@ -22,8 +22,11 @@ const High5Pairing: FunctionComponent<High5PairingProps> = ({ top, left, giver, 
 	var animationDirection = 'normal';
 
 	if (animationName == 'float-animation') {
-		animationDuration = `${8 + Math.random() * 3}s`;
-		animationDelay = `${Math.random() * 2}s`;
+		// animationDuration = `${8 + Math.random() * 3}s`;
+		// animationDelay = `${Math.random() * 2}s`;
+
+		animationDuration = '4s';
+		animationDelay = '1s';
 		animationDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
 	}
 	return (

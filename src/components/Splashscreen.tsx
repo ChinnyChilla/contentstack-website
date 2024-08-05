@@ -2,6 +2,7 @@ import React from "react"
 import ReactConfetti from "react-confetti";
 import "./Splashscreen.css"
 
+
 interface User {
 	display_name: string;
 	profile_url: string;

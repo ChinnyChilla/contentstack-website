@@ -4,6 +4,9 @@ import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "../components/PhotoGallery";
 import SplashScreen from "../components/Splashscreen";
 import "./GlassMorphismTestingWithMil.css";
+import PubNub from "pubnub"
+
+const INITAL_MESSAGES_SPLASHSCREEN = false;
 
 interface BoostMessageType {
 	title: string;
@@ -25,25 +28,43 @@ interface GlassMorphismTestingWithMilState {
 	currentMessage: BoostMessageType | null;
 	processedTitles: Array<string>;
 	reloadKey: number;
+	initalLoading: boolean;
 }
 
 class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTestingWithMilState> {
 	intervalId: NodeJS.Timer | null = null;
 	checkQueueInterval: NodeJS.Timer | null = null;
+	PubNub: PubNub;
+	
 
 	constructor(props: any) {
 		super(props);
 
 		this.state = {
+			initalLoading: true,
 			newMessagesQueue: [],
 			showSplashScreen: false,
 			currentMessage: null,
 			processedTitles: [],
 			reloadKey: 0,
 		};
+		var publishKey = process.env.REACT_APP_PUBNUB_PUBLISHKEY ?? ""
+		var subscribeKey = process.env.REACT_APP_PUBNUB_SUBSCRIBEKEY ?? ""
+
+		if (publishKey == "" || subscribeKey == "") {
+			console.error("WARNING: PUBNUB INVALID KEY")
+		}
+
+		this.PubNub = new PubNub({
+			publishKey: publishKey,
+			subscribeKey: subscribeKey,
+			userId: "server"
+		})
 	}
 
 	componentDidMount() {
+		this.addListener();
+		this.PubNub.subscribe({ channels: ["website"]});
 		this.fetchBoostMessages();
 
 		this.intervalId = setInterval(this.fetchBoostMessages, 60 * 1000);
@@ -58,6 +79,17 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 		if (this.checkQueueInterval) {
 			clearInterval(this.checkQueueInterval);
 		}
+		this.PubNub.unsubscribeAll();
+	}
+
+	addListener = () => {
+		this.PubNub.addListener({
+			message: ({channel, message, publisher}: any) => {
+				console.log("NEW PUBNUB MESSAGE")
+				console.log(message);
+				this.fetchBoostMessages();
+			}
+		})
 	}
 
 	fetchBoostMessages = () => {
@@ -84,7 +116,13 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 			}
 			return response.json();
 		}).then(data => {
-			this.handleNewMessages(data.entries.slice(0, 11));
+			if (this.state.initalLoading && !INITAL_MESSAGES_SPLASHSCREEN) {
+				this.placeMessagesIntoRead(data.entries.slice(0, 11));
+			} else {
+				this.handleNewMessages(data.entries.slice(0, 11));
+			}
+			this.setState({...this.state, initalLoading: false});
+			
 		}).catch(error => {
 			console.error('Fetch error:', error);
 		});
@@ -111,6 +149,14 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 		});
 	}
 
+	placeMessagesIntoRead = (newMessages: Array<BoostMessageType>) => {
+		var titles = [];
+
+		for (var i=0; i<newMessages.length; i++) {
+			titles.push(newMessages[i].title);
+		}
+		this.setState({...this.state, processedTitles: titles});
+	}
 	checkQueue = () => {
 		console.log("this is checkQueue state");
 		console.log(this.state)

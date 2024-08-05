@@ -58,6 +58,7 @@
 	top: 50%;
 	display: flex;
 	align-items: center;
+	font-family: "Lexend";
 	margin-left: 10px;
 	font-size: var(--font-size-mini);
 	color: var(--color-white);

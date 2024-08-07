@@ -47,7 +47,7 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 			this.setState({
 				animationStage: 'shrink'
 			})
-		}, 10 * 1000)
+		}, 20 * 1000)
 	}
 
 	createMarkup = (html: any) => {

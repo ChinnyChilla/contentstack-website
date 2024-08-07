@@ -154,7 +154,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 					isTransitioning: !isLastIndex,
 				};
 			});
-		}, 3000);
+		}, 5000);
 	}
 
 	render() {

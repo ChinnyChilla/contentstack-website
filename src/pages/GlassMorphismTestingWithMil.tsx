@@ -117,11 +117,13 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 			return response.json();
 		}).then(data => {
 			if (this.state.initalLoading && !INITAL_MESSAGES_SPLASHSCREEN) {
+				// this.handleNewMessages(data.entries.slice(0, 11));
 				this.placeMessagesIntoRead(data.entries.slice(0, 11));
 			} else {
+				console.log("calling handleNewMessage")
 				this.handleNewMessages(data.entries.slice(0, 11));
+				
 			}
-			this.setState({...this.state, initalLoading: false});
 			
 		}).catch(error => {
 			console.error('Fetch error:', error);
@@ -140,11 +142,17 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 			if (newEntries.length > 0) {
 				console.log("added new entries");
 				const updatedQueue = [...existingMessages, ...newEntries];
+				console.log(updatedQueue)
 				return {
+					...prevState,
+					initalLoading: false,
 					newMessagesQueue: updatedQueue,
 				};
 			} else {
-				return null;
+				return {
+					...prevState,
+					initalLoading: false,
+				};
 			}
 		});
 	}

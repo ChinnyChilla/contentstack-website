@@ -6,7 +6,7 @@ import SplashScreen from "../components/Splashscreen";
 import "./GlassMorphismTestingWithMil.css";
 import PubNub from "pubnub"
 
-const INITAL_MESSAGES_SPLASHSCREEN = false;
+const INITAL_MESSAGES_SPLASHSCREEN = true;
 
 interface BoostMessageType {
 	title: string;
@@ -69,7 +69,7 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 
 		this.intervalId = setInterval(this.fetchBoostMessages, 60 * 1000);
 
-		this.checkQueueInterval = setInterval(this.checkQueue, 30 * 1000);
+		// this.checkQueueInterval = setInterval(this.checkQueue, 10 * 1000);
 	}
 
 	componentWillUnmount() {
@@ -124,6 +124,9 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 				this.handleNewMessages(data.entries.slice(0, 11));
 				
 			}
+			setTimeout(() => {
+				this.checkQueue();
+			}, 2000)
 			
 		}).catch(error => {
 			console.error('Fetch error:', error);
@@ -164,42 +167,42 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 			titles.push(newMessages[i].title);
 		}
 		this.setState({...this.state, processedTitles: titles});
+		this.checkQueue();
 	}
 	checkQueue = () => {
 		console.log("this is checkQueue state");
-		console.log(this.state)
-		this.setState((prevState) => {
-			if (prevState.newMessagesQueue.length > 0) {
-				const [currentMessage, ...remainingQueue] = prevState.newMessagesQueue;
-				setTimeout(() => {
-					console.log("timeout called")
-					this.setState((innerState) => ({
-						showSplashScreen: false,
-						currentMessage: null,
-						newMessagesQueue: remainingQueue,
-						processedTitles: [...innerState.processedTitles, currentMessage.title],
-					}));
-				}, 15 * 1000);
-
-				setTimeout(() => {
-					this.setState((innerState) => ({
-						reloadKey: innerState.reloadKey + 1
-					}));
-				}, 2 * 1000)
-
-				return {
-					showSplashScreen: true,
-					currentMessage: currentMessage,
-					newMessagesQueue: remainingQueue,
-				};
-			} else {
-				return {
+		console.log(this.state);
+		const prevState = this.state;
+		if (prevState.newMessagesQueue.length > 0 && !prevState.showSplashScreen) {
+			console.log("in here")
+			const [currentMessage, ...remainingQueue] = prevState.newMessagesQueue;
+			setTimeout(() => {
+				console.log("timeout called")
+				this.setState((innerState) => ({
 					showSplashScreen: false,
 					currentMessage: null,
-					newMessagesQueue: []
-				};
-			}
-		});
+					newMessagesQueue: remainingQueue,
+					processedTitles: [...innerState.processedTitles, currentMessage.title],
+				}));
+			}, 25 * 1000);
+
+			setTimeout(() => {
+				this.checkQueue()
+			}, 50 * 1000)
+
+			setTimeout(() => {
+				this.setState((innerState) => ({
+					reloadKey: innerState.reloadKey + 1
+				}));
+			}, 2 * 1000)
+
+			this.setState({
+				...prevState,
+				showSplashScreen: true,
+				currentMessage: currentMessage,
+				newMessagesQueue: remainingQueue,
+			})
+		}
 	}
 
 	render() {

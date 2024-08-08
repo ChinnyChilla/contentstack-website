@@ -6,7 +6,7 @@ import SplashScreen from "../components/Splashscreen";
 import "./GlassMorphismTestingWithMil.css";
 import PubNub from "pubnub"
 
-const INITAL_MESSAGES_SPLASHSCREEN = true;
+const INITAL_MESSAGES_SPLASHSCREEN = false;
 
 interface BoostMessageType {
 	title: string;

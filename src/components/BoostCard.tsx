@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import "./SimpleText.css";
 import './BoostCard.css'
 
 export type BoostCardType = {

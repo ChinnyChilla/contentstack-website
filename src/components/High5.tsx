@@ -90,11 +90,11 @@ class High5 extends React.Component<{}, High5State> {
 							top: '0%',
 							left: '0%',
 							giver: {
-								display_name: entry.giver_display_name,
+								display_name: entry.giver_display_name == "" ? entry.giver_profile_url.title : entry.giver_display_name,
 								profile_url: entry.giver_profile_url.href,
 							},
 							reciever: {
-								display_name: recipient.receiver_display_name,
+								display_name: recipient.receiver_display_name == "" ? recipient.receiver_profile_picture.title : recipient.receiver_display_name,
 								profile_url: recipient.receiver_profile_picture.href,
 							},
 							animationName,
@@ -104,7 +104,7 @@ class High5 extends React.Component<{}, High5State> {
 				});
 				console.log("Pool size is: " + pool.length);
 				this.setState({
-					pool: pool.slice(-20)
+					pool: pool.slice(-100)
 				}, () => this.initalPairings());
 			}).catch(error => {
 				console.error('Fetch error:', error);

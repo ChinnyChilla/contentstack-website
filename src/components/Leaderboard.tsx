@@ -57,6 +57,7 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 		var leaderboard = []
 		for (const [name,choice] of Object.entries(TopicChoices)) {
 			const usersSorted = [...users].sort((u1, u2) => u2[choice] - u1[choice])
+			console.log(usersSorted)
 
 			const topUsers = usersSorted.slice(0, amount);
 			var convertedArray: Array<LeaderboardEntryType> = []
@@ -73,6 +74,7 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 				highest: convertedArray
 		})
 		}
+		console.log(leaderboard);
 		this.setState({
 			isLoading: false,
 			leaderboard: leaderboard

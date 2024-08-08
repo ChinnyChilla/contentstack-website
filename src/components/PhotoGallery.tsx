@@ -2,6 +2,7 @@ import React from "react";
 import './PhotoGallery.css';
 import AwardCard from "./AwardCard";
 import BoostCard from "./BoostCard";
+import PubNub from "pubnub";
 interface AwardCardType {
 	award_title_name: string,
 	award_user_display_name: string,
@@ -31,12 +32,14 @@ interface PageState {
 	currentCarouselIndex: number;
 	isTransitioning: boolean;
 	combinedMessages: Array<AwardCardType | BoostMessageType>;
+	newAwards: boolean;
 }
 
 class PhotoGallery extends React.Component<{}, PageState> {
 	intervalId: NodeJS.Timer | null;
 	carouselInterval: NodeJS.Timer | null;
 	numClones: number;
+	PubNub: PubNub;
 	
 
 	constructor(props: any) {
@@ -53,71 +56,95 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			currentCarouselIndex: 0,
 			isTransitioning: false,
 			combinedMessages: [],
-			
+			newAwards: false,
 		};
+		var publishKey = process.env.REACT_APP_PUBNUB_PUBLISHKEY ?? ""
+		var subscribeKey = process.env.REACT_APP_PUBNUB_SUBSCRIBEKEY ?? ""
+
+		if (publishKey == "" || subscribeKey == "") {
+			console.error("WARNING: PUBNUB INVALID KEY")
+		}
+
+		this.PubNub = new PubNub({
+			publishKey: publishKey,
+			subscribeKey: subscribeKey,
+			userId: "server"
+		})
 	}
 
+	addListener = () => {
+		this.PubNub.addListener({
+			message: ({ channel, message, publisher }: any) => {
+				console.log("NEW PUBNUB MESSAGE")
+				console.log(message);
+				this.setState({
+					newAwards: true
+				})
+			}
+		})
+	}
+	fetchMessages() {
+		const parameters = new URLSearchParams({
+			environment: process.env.REACT_APP_CONTENTSTACK_ENVIRONMENT_NAME || "",
+			locale: "en-us",
+			include_fallback: "true",
+			include_branch: "false"
+		});
+
+		const headers = new Headers();
+		headers.set("api_key", process.env.REACT_APP_CONTENTSTACK_API_KEY || "");
+		headers.set("access_token", process.env.REACT_APP_CONTENTSTACK_ACCESS_TOKEN || "");
+
+		const url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/award_card/entries?${parameters.toString()}`;
+		console.log(`Fetched url ${url}`);
+		fetch(url, {
+			method: "GET",
+			headers: headers
+		}).then(response => {
+			if (!response.ok) {
+				console.error('HTTP error:', response.status, response.statusText);
+				throw new Error('Network response was not ok');
+			}
+			return response.json();
+		}).then(data => {
+			console.log("this is for award cards")
+			console.log(data.entries);
+			this.setState({
+				awardCards: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+			}, this.combineAndSortMessages);
+		}).catch(error => {
+			console.error('Fetch error:', error);
+		});
+		const boost_url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/boost_message/entries?${parameters.toString()}`;
+		console.log(`Fetched url ${url}`);
+		fetch(boost_url, {
+			method: "GET",
+			headers: headers
+		}).then(response => {
+			if (!response.ok) {
+				console.error('HTTP error:', response.status, response.statusText);
+				throw new Error('Network response was not ok');
+			}
+			return response.json();
+		}).then(data => {
+			console.log("this is for boost messages")
+			console.log(data.entries);
+			this.setState({
+				boostMessages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+				isLoading: false,
+				newAwards: false,
+			}, this.combineAndSortMessages);
+		}).catch(error => {
+			console.error('Fetch error:', error);
+		});
+	}
 	componentDidMount() {
 
-		
-
-		const fetchMessages = () => {
-			const parameters = new URLSearchParams({
-				environment: process.env.REACT_APP_CONTENTSTACK_ENVIRONMENT_NAME || "",
-				locale: "en-us",
-				include_fallback: "true",
-				include_branch: "false"
-			});
-
-			const headers = new Headers();
-			headers.set("api_key", process.env.REACT_APP_CONTENTSTACK_API_KEY || "");
-			headers.set("access_token", process.env.REACT_APP_CONTENTSTACK_ACCESS_TOKEN || "");
-
-			const url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/award_card/entries?${parameters.toString()}`;
-			console.log(`Fetched url ${url}`);
-			fetch(url, {
-				method: "GET",
-				headers: headers
-			}).then(response => {
-				if (!response.ok) {
-					console.error('HTTP error:', response.status, response.statusText);
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			}).then(data => {
-				console.log("this is for award cards")
-				console.log(data.entries);
-				this.setState({
-					awardCards: data.entries.slice(0, 11), // Ensure only 11 items are fetched
-				}, this.combineAndSortMessages);
-			}).catch(error => {
-				console.error('Fetch error:', error);
-			});
-			const boost_url = `${process.env.REACT_APP_CONTENTSTACK_BASE_URL}/v3/content_types/boost_message/entries?${parameters.toString()}`;
-			console.log(`Fetched url ${url}`);
-			fetch(boost_url, {
-				method: "GET",
-				headers: headers
-			}).then(response => {
-				if (!response.ok) {
-					console.error('HTTP error:', response.status, response.statusText);
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			}).then(data => {
-				console.log("this is for boost messages")
-				console.log(data.entries);
-				this.setState({
-					boostMessages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
-					isLoading: false,
-				}, this.combineAndSortMessages);
-			}).catch(error => {
-				console.error('Fetch error:', error);
-			});
-		};
+		this.addListener();
+		this.PubNub.subscribe({ channels: ["award"] });
 
 		// Initial fetch
-		fetchMessages();
+		this.fetchMessages();
 		// Start the carousel
 		this.startCarousel();
 	}
@@ -148,6 +175,10 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			this.setState((prevState) => {
 				const nextIndex = prevState.currentCarouselIndex + 1;
 				const isLastIndex = nextIndex >= (prevState.combinedMessages.length + 1)
+
+				if (isLastIndex && prevState.newAwards) {
+					this.fetchMessages();
+				}
 
 				return {
 					currentCarouselIndex: isLastIndex ? 0 : nextIndex,

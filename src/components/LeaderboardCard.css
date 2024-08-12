@@ -2,15 +2,17 @@
 	position: relative;
   }
   
-  .trophy-icon {
+  .leaderboard-trophy-icon img{
 	position: absolute;
-	top: -70%;
-	left: 87%;
-	width: 7%;
-	height: 25%;
+	padding-top: 5%;
+	left: 90%;
+	aspect-ratio: 1 / 1;
+	width: 5%;
   }
   
-
+.leaderboard-header-container {
+	display: flex;
+}
 .leaderboard-card-container {
 	position: relative;
 	height: fit-content;

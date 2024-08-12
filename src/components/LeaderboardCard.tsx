@@ -6,20 +6,22 @@ import { LeaderboardEntryType } from "./Leaderboard";
 const LeaderboardCard = ({ topic, leaderboard }: { topic: string; leaderboard: Array<LeaderboardEntryType> }) => {
   return (
     <div className="leaderboard-card-container">
-      <div className="leaderboard-card-topic">
-        <span>{topic}</span>
-      </div>
-
+	<div className="leaderboard-header-container">
+		<div className="leaderboard-card-topic">
+			<span>{topic}</span>
+		</div>
+		<div className="leaderboard-trophy-icon">
+			<img
+				src="https://static-00.iconduck.com/assets.00/trophy-winner-prize-icon-2013x2048-rfqmn1p2.png" // Replace with your actual trophy image URL
+				alt="Trophy"
+				className="trophy-icon"
+			/>
+		</div>
+	</div>
+     
       <div className="leaderboard-entries-container">
         {leaderboard.map((entry, index) => (
           <div key={index} className="leaderboard-entry-wrapper">
-            {index === 0 && (
-              <img
-                src="https://static-00.iconduck.com/assets.00/trophy-winner-prize-icon-2013x2048-rfqmn1p2.png" // Replace with your actual trophy image URL
-                alt="Trophy"
-                className="trophy-icon"
-              />
-            )}
             <LeaderboardEntry
               score={entry.score}
               profile_url={entry.image}

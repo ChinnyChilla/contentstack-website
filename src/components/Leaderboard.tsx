@@ -127,7 +127,7 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 			return {
 				name: key == "Do_the_right_thing" ? "Do the Right Thing" : key,
 				score: score,
-				image: `${key}_icon.png`
+				image: `${key.toLowerCase()}_icon.png`
 			}
 		  })
 

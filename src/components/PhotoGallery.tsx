@@ -211,7 +211,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 					{messagesToRender.map((item, index) => (
 						<div className="carousel-item" key={index}>
 							{'award_title_name' in item ? (
-								<AwardCard recipient_display_name={item.award_user_display_name} recipient_profile_url={item.award_profile_url.href} award_name={item.award_title_name} />
+								<AwardCard recipient_display_name={item.award_user_display_name == "" ? item.award_profile_url.title : item.award_user_display_name} recipient_profile_url={item.award_profile_url.href} award_name={item.award_title_name} />
 							) : (
 								<BoostCard message={item.message_content_parsed == null ? item.message_content : item.message_content_parsed} 
 											giver_display_name={item.giver_display_name == "" ? item.giver_profile_url.title : item.giver_display_name} 

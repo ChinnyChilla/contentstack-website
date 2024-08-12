@@ -166,7 +166,7 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 		for (var i=0; i<newMessages.length; i++) {
 			titles.push(newMessages[i].title);
 		}
-		this.setState({...this.state, processedTitles: titles});
+		this.setState({...this.state, processedTitles: titles, initalLoading: false});
 		this.checkQueue();
 	}
 	checkQueue = () => {

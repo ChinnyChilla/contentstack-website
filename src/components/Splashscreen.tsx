@@ -75,7 +75,7 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 		return(
 			<div className={`splashscreen ${this.state.animationStage}`}>
 				{
-					this.state.animationStage == "confetti" && <ReactConfetti width={window.innerWidth * 0.8 - 100} colors={["A020F0", "FFA500"]}/>
+					this.state.animationStage == "confetti" && <ReactConfetti width={window.innerWidth * 0.8 - 100}/>
 				}
 				<div className="splashscreen-content">
 					<div className="splashscreen-header">

@@ -12,7 +12,7 @@ const LeaderboardCard = ({ topic, leaderboard }: { topic: string; leaderboard: A
 		</div>
 		<div className="leaderboard-trophy-icon">
 			<img
-				src="https://static-00.iconduck.com/assets.00/trophy-winner-prize-icon-2013x2048-rfqmn1p2.png" // Replace with your actual trophy image URL
+				src="https://static-00.iconduck.com/assets.00/trophy-winner-prize-icon-2013x2048-rfqmn1p2.png"
 				alt="Trophy"
 				className="trophy-icon"
 			/>

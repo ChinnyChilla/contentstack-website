@@ -7,7 +7,7 @@ const INITAL_PAIRING_AMOUNT = 6;
 const TOP_DIFFERENCE = 10;
 const SIDE_DIFFERENCE = 25;
 
-const TOP_LIMIT = 75;
+const TOP_LIMIT = 73;
 const SIDE_LIMIT = 70;
 
 interface BoostMessageRecipientType {

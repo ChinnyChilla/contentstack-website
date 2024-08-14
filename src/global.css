@@ -4,8 +4,15 @@
 body {
   margin: 0;
   line-height: normal;
+  min-height: 100vh;
+  zoom: 100%;
 }
-:root {
+@media only screen and (max-width: 1919px) {
+  body {
+    zoom: 67%;
+  }
+}
+  :root {
   /* fonts */
   --font-manrope: Manrope;
   --font-lexend: Lexend;

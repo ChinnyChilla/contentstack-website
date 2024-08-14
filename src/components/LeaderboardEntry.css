@@ -31,7 +31,7 @@
 }
 .leaderboard-entry-score {
 	padding-right: 5%;
-	font-size: 1.5em;
+	font-size: var(--font-size-xl);
 }
 .leaderboard-entry-left {
 	display: flex;

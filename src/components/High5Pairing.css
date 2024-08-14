@@ -16,7 +16,8 @@
 }
 
 .float-animation {
-    animation: float 4s ease-in-out infinite;
+	/* ANIMATION DOESNT WORK WITH LEAVE-ANIMATION (glitchy) */
+    /* animation: float 4s ease-in-out infinite; */
 }
 
 .leave-animation {
@@ -37,11 +38,12 @@
 }
 
 .high5-pairing-image {
-    width: 100%; 
+    /* width: 100%;  */
     height: 80px; 
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 5px;
+	aspect-ratio: 1 / 1;
 }
 
 .high5-pairing-name {

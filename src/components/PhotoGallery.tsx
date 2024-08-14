@@ -110,7 +110,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			console.log("this is for award cards")
 			console.log(data.entries);
 			this.setState({
-				awardCards: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+				awardCards: data.entries.slice(0, 11),
 			}, this.combineAndSortMessages);
 		}).catch(error => {
 			console.error('Fetch error:', error);
@@ -130,7 +130,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 			console.log("this is for boost messages")
 			console.log(data.entries);
 			this.setState({
-				boostMessages: data.entries.slice(0, 11), // Ensure only 11 items are fetched
+				boostMessages: data.entries.slice(0, 11),
 				isLoading: false,
 				newAwards: false,
 			}, this.combineAndSortMessages);
@@ -143,9 +143,7 @@ class PhotoGallery extends React.Component<{}, PageState> {
 		this.addListener();
 		this.PubNub.subscribe({ channels: ["award"] });
 
-		// Initial fetch
 		this.fetchMessages();
-		// Start the carousel
 		this.startCarousel();
 	}
 

@@ -30,10 +30,7 @@
 }
 .boost-card-front {
 	display: flex;
-	/* align-items: center; */
-	/* justify-content: center; */
 	flex-direction: column;
-	/* Ensures elements inside are stacked vertically */
 }
 .boost-card-header {
 	height: fit-content;
@@ -102,15 +99,13 @@ span {
 	word-wrap: break-word;
 	font-size: 1.2em;
 	padding: 10px;
-	
-	/* display: inline-block; */
 }
 .boost-avatar-container {
 	display: flex;
+
 	width: 3vw;
-	/* Adjust percentage as needed */
 	height: 3vw;
-	/* This makes the height equal to the width, keeping it square */
+	
 	border-radius: 50%;
 	overflow: hidden;
 	margin-right: 10px;

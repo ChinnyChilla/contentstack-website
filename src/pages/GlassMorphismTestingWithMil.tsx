@@ -69,6 +69,7 @@ class GlassMorphismTestingWithMil extends React.Component<{}, GlassMorphismTesti
 
 		this.intervalId = setInterval(this.fetchBoostMessages, 60 * 1000);
 
+		// no need for this interval since everything is real time now
 		// this.checkQueueInterval = setInterval(this.checkQueue, 10 * 1000);
 	}
 

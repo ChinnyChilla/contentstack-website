@@ -24,7 +24,7 @@ const LeaderboardCard = ({ topic, leaderboard }: { topic: string; leaderboard: A
           <div key={index} className="leaderboard-entry-wrapper">
             <LeaderboardEntry
               score={entry.score}
-              profile_url={entry.image}
+              profile_url={entry.image == "undefined" ? "default_profile.png" : entry.image}
               display_name={entry.name}
             />
           </div>

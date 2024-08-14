@@ -77,11 +77,11 @@ class High5 extends React.Component<{}, High5State> {
 				console.log(data.entries)
 				const pool: Array<High5PairingProps> = []
 				data.entries.forEach((entry: BoostMessageEntryType) => {
-					if (entry.giver_display_name == "undefined" || entry.giver_profile_url.href == "undefined") {
+					if (entry.giver_display_name == "undefined") {
 						return;
 					}
 					entry.group.forEach((recipient: BoostMessageRecipientType) => {
-						if (recipient.receiver_display_name == "undefined" || recipient.receiver_profile_picture.href == "undefined") {
+						if (recipient.receiver_display_name == "undefined") {
 							return;
 						}
 						
@@ -91,11 +91,11 @@ class High5 extends React.Component<{}, High5State> {
 							left: '0%',
 							giver: {
 								display_name: entry.giver_display_name == "" ? entry.giver_profile_url.title : entry.giver_display_name,
-								profile_url: entry.giver_profile_url.href,
+								profile_url: entry.giver_profile_url.href == "undefined" ? "default_profile.png" : entry.giver_profile_url.href,
 							},
 							reciever: {
 								display_name: recipient.receiver_display_name == "" ? recipient.receiver_profile_picture.title : recipient.receiver_display_name,
-								profile_url: recipient.receiver_profile_picture.href,
+								profile_url: recipient.receiver_profile_picture.href == "undefined" ? "default_profile.png" : recipient.receiver_profile_picture.href,
 							},
 							animationName,
 							value: entry.category,
@@ -172,16 +172,16 @@ class High5 extends React.Component<{}, High5State> {
 		if (this.state.pairings.length === 0) return;
 		
 		this.setState((prevState) => {
-			// Get the first pairing and update its animationName
-			let updatedPairings = prevState.pairings.slice(); // Create a copy of the pairings array
+			// remove most oldest pairing
+			let updatedPairings = prevState.pairings.slice();
 			if (updatedPairings.length > 0) {
 				updatedPairings[0] = {
-					...updatedPairings[0], // Spread the properties of the first pairing
-					animationName: 'leave-animation' // Update the animationName property
+					...updatedPairings[0],
+					animationName: 'leave-animation'
 				};
 			}
 			return {
-				pairings: updatedPairings // Set the updated pairings array to the state
+				pairings: updatedPairings
 			};
 		});
 
@@ -235,15 +235,15 @@ class High5 extends React.Component<{}, High5State> {
 
 		setTimeout(() => {
 			this.setState((prevState) => {
-				let updatedPairings = prevState.pairings.slice(); // Create a copy of the pairings array
+				let updatedPairings = prevState.pairings.slice();
 				if (updatedPairings.length > 0) {
 					updatedPairings[updatedPairings.length - 1] = {
-						...updatedPairings[updatedPairings.length - 1], // Spread the properties of the last pairing
-						animationName: 'float-animation' // Update the animationName property
+						...updatedPairings[updatedPairings.length - 1],
+						animationName: 'float-animation'
 					};
 				}
 				return {
-					pairings: updatedPairings // Set the updated pairings array to the state
+					pairings: updatedPairings
 				};
 			});
 		}, 500);

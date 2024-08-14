@@ -33,7 +33,7 @@ const BoostCard: FunctionComponent<BoostCardType> = ({ message, giver_display_na
 				<div className="boost-card-front">
 					<div className="boost-card-header">
 						<div className="boost-avatar-container">
-							<img className="boost-card-profile" alt="" src={giver_profile_url} />
+							<img className="boost-card-profile" alt="" src={giver_profile_url == "undefined" ? "default_profile.png" : giver_profile_url} />
 						</div>
 						<div className="boost-card-name">{giver_display_name}</div>
 					</div>

@@ -53,7 +53,6 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 	createMarkup = (html: any) => {
 		return { __html: html };
 	}
-	// componentDidMount() 
 	render() {
 
 		let valueEmoji;

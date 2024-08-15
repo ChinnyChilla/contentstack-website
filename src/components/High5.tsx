@@ -29,9 +29,8 @@ interface BoostMessageEntryType {
 }
 
 interface High5State {
-	pairings: Array<High5PairingProps>;
+	displayedPairings: Array<High5PairingProps>;
 	pool: Array<High5PairingProps>;
-	poppingIndex: number | null;
 }
 
 class High5 extends React.Component<{}, High5State> {
@@ -43,9 +42,8 @@ class High5 extends React.Component<{}, High5State> {
 		this.deletePairingInterval = null;
 		this.addPairingInterval = null;
 		this.state = {
-			pairings: [],
+			displayedPairings: [],
 			pool: [],
-			poppingIndex: null
 		};
 	}
 
@@ -153,12 +151,12 @@ class High5 extends React.Component<{}, High5State> {
 			)
 		}
 		this.setState({
-			pairings: pairings
+			displayedPairings: pairings
 		})
 
 		setTimeout(() => {
 			this.setState((prevState) => ({
-				pairings: prevState.pairings.map(pairing => ({
+				displayedPairings: prevState.displayedPairings.map(pairing => ({
 					...pairing,
 					animationName: 'float-animation'
 				}))
@@ -169,11 +167,11 @@ class High5 extends React.Component<{}, High5State> {
 
 	popAndDelete = () => {
 		console.log("deletePairing called")
-		if (this.state.pairings.length === 0) return;
+		if (this.state.displayedPairings.length === 0) return;
 		
 		this.setState((prevState) => {
 			// remove most oldest pairing
-			let updatedPairings = prevState.pairings.slice();
+			let updatedPairings = prevState.displayedPairings.slice();
 			if (updatedPairings.length > 0) {
 				updatedPairings[0] = {
 					...updatedPairings[0],
@@ -181,14 +179,14 @@ class High5 extends React.Component<{}, High5State> {
 				};
 			}
 			return {
-				pairings: updatedPairings
+				displayedPairings: updatedPairings
 			};
 		});
 
 		setTimeout(() => {
 			this.setState((prevState) => {
 				return {
-					pairings: prevState.pairings.slice(1)
+					displayedPairings: prevState.displayedPairings.slice(1)
 				}
 			})
 		}, 500)
@@ -198,7 +196,7 @@ class High5 extends React.Component<{}, High5State> {
 
 	addPairing = () => {
 		console.log("addPairing called")
-		const alreadyShownPairings = this.state.pairings;
+		const alreadyShownPairings = this.state.displayedPairings;
 		const remainingPool = this.state.pool.filter((pairing) => {
 			for (const remainingPair of alreadyShownPairings) {
 				if ((remainingPair.giver.display_name == pairing.giver.display_name) &&
@@ -219,7 +217,7 @@ class High5 extends React.Component<{}, High5State> {
 			attempts += 1;
 			top = 5 + Math.random() * TOP_LIMIT;
 			left = Math.random() * SIDE_LIMIT;
-			isValidPosition = this.state.pairings.every(pairing => {
+			isValidPosition = this.state.displayedPairings.every(pairing => {
 				const topDiff = Math.abs(parseFloat(pairing.top) - top);
 				const leftDiff = Math.abs(parseFloat(pairing.left) - left);
 				return topDiff >= TOP_DIFFERENCE && leftDiff >= SIDE_DIFFERENCE;
@@ -230,12 +228,12 @@ class High5 extends React.Component<{}, High5State> {
 		}
 
 		this.setState({
-			pairings: [...this.state.pairings, { ...newPairing, top: `${top}%`, left: `${left}%`, animationName: 'intro-animation'}],
+			displayedPairings: [...this.state.displayedPairings, { ...newPairing, top: `${top}%`, left: `${left}%`, animationName: 'intro-animation'}],
 		});
 
 		setTimeout(() => {
 			this.setState((prevState) => {
-				let updatedPairings = prevState.pairings.slice();
+				let updatedPairings = prevState.displayedPairings.slice();
 				if (updatedPairings.length > 0) {
 					updatedPairings[updatedPairings.length - 1] = {
 						...updatedPairings[updatedPairings.length - 1],
@@ -243,7 +241,7 @@ class High5 extends React.Component<{}, High5State> {
 					};
 				}
 				return {
-					pairings: updatedPairings
+					displayedPairings: updatedPairings
 				};
 			});
 		}, 500);
@@ -256,7 +254,7 @@ class High5 extends React.Component<{}, High5State> {
 		return (
 			<div className='high5-container'>
 				<b className="high5-title-text">Most Recent High-5's</b>
-				{this.state.pairings.map((pairing, index) => (
+				{this.state.displayedPairings.map((pairing, index) => (
 						<High5Pairing
 							key={index}
 							top={pairing.top}

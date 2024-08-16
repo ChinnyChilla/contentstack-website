@@ -35,12 +35,6 @@ interface UserType {
 		title: string;
 	};
 }
-interface LeaderboardState {
-	users: Array<UserType>,
-	leaderboard: Array<LeaderboardType>
-	isLoading: boolean
-}
-
 class Leaderboard extends React.Component<{}, LeaderboardState> {
 	constructor(props: any) {
 		super(props);

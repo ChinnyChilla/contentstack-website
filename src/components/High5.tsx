@@ -3,6 +3,7 @@ import "./High5.css";
 import High5Pairing, { High5PairingProps } from './High5Pairing';
 
 const INITAL_PAIRING_AMOUNT = 6;
+const MOST_RECENT_PAIRING_COUNT = 50;
 
 const TOP_DIFFERENCE = 10;
 const SIDE_DIFFERENCE = 25;
@@ -102,7 +103,7 @@ class High5 extends React.Component<{}, High5State> {
 				});
 				console.log("Pool size is: " + pool.length);
 				this.setState({
-					pool: pool.slice(-100)
+					pool: pool.slice(-MOST_RECENT_PAIRING_COUNT)
 				}, () => this.initalPairings());
 			}).catch(error => {
 				console.error('Fetch error:', error);

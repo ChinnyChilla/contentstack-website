@@ -12,6 +12,14 @@
 	animation: expandOut 2s forwards;
 	flex-direction: column;
 	border-radius: 3%;
+	overflow: hidden;
+}
+.splashscreen-firework {
+	position: fixed;
+	top: 10px;
+	left: 35px;
+	width: 100%;
+	height: 110%;
 }
 
 .intro {

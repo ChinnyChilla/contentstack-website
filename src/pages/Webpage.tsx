@@ -3,10 +3,10 @@ import High5 from "../components/High5";
 import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "../components/PhotoGallery";
 import SplashScreen from "../components/Splashscreen";
-import "./GlassMorphismTestingWithMil.css";
+import "./Webpage.css";
 import PubNub from "pubnub"
 
-const INITAL_MESSAGES_SPLASHSCREEN = false;
+const INITAL_MESSAGES_SPLASHSCREEN = true;
 
 interface BoostMessageType {
 	title: string;

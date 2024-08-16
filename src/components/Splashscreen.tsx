@@ -1,5 +1,6 @@
 import React from "react"
 import ReactConfetti from "react-confetti";
+import { Fireworks } from "fireworks-js"
 import "./Splashscreen.css"
 
 
@@ -39,9 +40,19 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 
 	componentDidMount(): void {
 		setTimeout(() => {
-			this.setState({
-				animationStage: 'confetti'
-			})
+			let shuffle = Math.random();
+
+			if (shuffle > 0.5) {
+				const container = document.querySelector('.splashscreen-firework')
+				if (!container) return;
+				const fireworks = new Fireworks(container, {intensity: 50})
+				fireworks.start();
+			} else {
+				this.setState({
+					animationStage: 'confetti'
+				})
+			}
+ 			
 		}, 2 * 1000)
 		setTimeout(() => {
 			this.setState({
@@ -77,6 +88,9 @@ class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState>
 				{
 					this.state.animationStage == "confetti" && <ReactConfetti width={window.innerWidth} height={window.innerHeight}/>
 				}
+				<div className="splashscreen-firework">
+
+				</div>
 				<div className="splashscreen-content">
 					<div className="splashscreen-header">
 						<div className="splashscreen-header-picture">

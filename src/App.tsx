@@ -5,7 +5,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import GlassMorphismTestingWithMil from "./pages/GlassMorphismTestingWithMil";
+import Webpage from "./pages/Webpage";
 
 function App() {
   const action = useNavigationType();
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<GlassMorphismTestingWithMil />} />
+      <Route path="/" element={<Webpage />} />
     </Routes>
   );
 }

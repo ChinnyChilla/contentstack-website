@@ -36,6 +36,8 @@ interface UserType {
 	};
 }
 class Leaderboard extends React.Component<{}, LeaderboardState> {
+	
+	checkLeaderboardInvertval: NodeJS.Timer | null = null;
 	constructor(props: any) {
 		super(props);
 
@@ -130,10 +132,9 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 		} catch (error) {
 		  console.error('Error fetching core values:', error);
 		}
-	  }
+	}
 	  
-
-	componentDidMount(): void {
+	fetchLeaderboard() {
 		const parameters = new URLSearchParams({
 			environment: process.env.REACT_APP_CONTENTSTACK_ENVIRONMENT_NAME || "",
 			locale: "en-us",
@@ -161,6 +162,12 @@ class Leaderboard extends React.Component<{}, LeaderboardState> {
 			console.error('Fetch error:', error);
 		});
 		this.fetchCoreValues();
+	}
+
+	componentDidMount(): void {
+		this.fetchLeaderboard();
+		
+		this.checkLeaderboardInvertval = setInterval(this.fetchLeaderboard, 1000 * 60 * 30);
 
 	}
 
